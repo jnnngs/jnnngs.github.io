@@ -1,2 +1,2 @@
-# CodeNerve.github.io
-Terminal based portfolio website for CodeNerve
+# jnnngs.github.io
+Terminal based portfolio website 
