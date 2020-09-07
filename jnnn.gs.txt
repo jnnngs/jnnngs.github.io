@@ -3,7 +3,7 @@
 My favorite code quote, "<span id="k">Hello World!</span>". <!-- sjkfhskjf -->
 
 Hey There! This is the portflio website in the skin of a terminal.<!-- laglaglaglaglaglaglaglaglaglaglaglag --><p>Somewhere my career started, back in the days of mainframes.</p>
-<p>I am Paul Jennings, a Prinical Architect whom loves everything tech.</p> <!-- ksjdokhdfgdufdfkjhfkjahdfkjhafkjhakf -->
+<p>I am Paul Jennings, a Principal Architect whom loves everything tech.</p> <!-- ksjdokhdfgdufdfkjhfkjahdfkjhafkjhakf -->
 <p> I have worked across private and public sector, enjoying designing and delivering a multitude of digital transformations.</p><!-- kjdhjhgdgldjhgdwtoiewotwotjdfkjdfffsf -->
 <p>I am a family man, having two young daughters and a young adult son.</p><!-- hsdgfhjfkdjhfkjsdhfkjdshfkjsdhfkjsdhkfjhdskjfhksdjhfkdsj -->
 <p> My professional profiles I have on the internet are: <br> <a href="https://github.com/jnnngs">https://github.com/jnnngs</a>.</p>
