@@ -1,13 +1,13 @@
-<span id="a">paul@jnnn.gs</span>:<span id="b">~</span><span id="c">$</span> cd jnnngs/<!-- kjsdfhkjdhsfkjdshfkj -->About_Us
+<span id="a">paul@jnnn.gs</span>:<span id="b">~</span><span id="c">$</span> cd jnnngs/<!-- kjsdfhkjdhsfkjdshfkj -->About_Me
 <span id="a">paul@jnnn.gs</span>:<span id="b">~</span><span id="c">$</span> cat <!-- kjsdfhkjdhsfkjdshfkj -->jnnn.gs.txt<br/><br/>
-My favorite code quote, "<span id="k">Code for Everyone</span>". <!-- sjkfhskjf -->
+My favorite code quote, "<span id="k">Hello World!</span>". <!-- sjkfhskjf -->
 
-Hey There! This is the portflio website in the skin of a terminal.<!-- laglaglaglaglaglaglaglaglaglaglaglag --><p>You can see that, this is how your portfolio would look like.</p>
-<p>You can introduce yourself here.</p> <!-- ksjdokhdfgdufdfkjhfkjahdfkjhafkjhakf -->
-<p> You can also tell what you've worked and known and what skills you have, you can also give link to your professional portfolio here<a href="link"> portfolio</a>.</p><!-- kjdhjhgdgldjhgdwtoiewotwotjdfkjdfffsf -->
-<p>Tell more about yourself. <br><br><br>Give your project links or something like that. <a href="link"> Here you go</a>.</p><!-- hsdgfhjfkdjhfkjsdhfkjdshfkjsdhfkjsdhkfjhdskjfhksdjhfkdsj -->
-<p> You can give links to other professional profiles you have on Internet, here: <br> <a href="link1">Profile1</a> <br> <a href="link2">Profile2</a> and <br> <a href="link3">Profile3</a>.</p>
+Hey There! This is the portflio website in the skin of a terminal.<!-- laglaglaglaglaglaglaglaglaglaglaglag --><p>Somewhere my career started, back in the days of mainframes.</p>
+<p>I am Paul Jennings, a Prinical Architect whom loves everything tech.</p> <!-- ksjdokhdfgdufdfkjhfkjahdfkjhafkjhakf -->
+<p> I have worked across private and public sector, enjoying designing and delivering a multitude of digital transformations.</p><!-- kjdhjhgdgldjhgdwtoiewotwotjdfkjdfffsf -->
+<p>I am a family man, having two young daughters and a young adult son.</p><!-- hsdgfhjfkdjhfkjsdhfkjdshfkjsdhfkjsdhkfjhdskjfhksdjhfkdsj -->
+<p> My professional profiles I have on the internet are: <br> <a href="https://github.com/jnnngs">https://github.com/jnnngs</a>.</p>
 
-You can also give your email ID for contacting you<!-- slightdelayhere-->, feel free to send me an email at<!-- longlonglongcomment --> <a href="Your email ID">Email</a>.
+You can also contact me on email <!-- slightdelayhere-->, feel free to send me an email at<!-- longlonglongcomment --> <a href="paul@jnnn.gs">Paul at jnnn dot gs</a>.
 
 <p>Cheers!</p>
