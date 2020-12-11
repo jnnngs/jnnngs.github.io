@@ -2,5 +2,5 @@
 <span id="a">jnnn.gs</span>:<span id="b">~</span><span id="c">$</span> cat <!-- kjsdfhkjdhsfkjdshfkj -->jnnn.gs.txt<br/><br/>
 My favorite code quote, "<span id="k">Hello World!</span>". <!-- sjkfhskjf -->
 
-Hey There! This is a holding page in the skin of a terminal, <!-- laglaglaglaglaglaglaglaglaglaglaglag --><p>somewhere I like to spend my time.</p>
+Hey There! This is a holding page in the skin of a terminal, somewhere I like to spend my time.</p>
 <p>Laters!</p>
