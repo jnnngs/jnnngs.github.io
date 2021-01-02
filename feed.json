@@ -2,16 +2,16 @@
     "version": "https://jsonfeed.org/version/1",
     "title": "jnnngs",
     "description": "",
-    "home_page_url": "file:///C:\Users\jnnngs\OneDrive\Documents\Publii\sites\jnnngs\preview",
-    "feed_url": "file:///C:\Users\jnnngs\OneDrive\Documents\Publii\sites\jnnngs\preview/feed.json",
+    "home_page_url": "https://github.com/jnnngs/jnnngs.github.io",
+    "feed_url": "https://github.com/jnnngs/jnnngs.github.io/feed.json",
     "user_comment": "",
     "author": {
         "name": "Paul Jennings"
     },
     "items": [
         {
-            "id": "file:///C:\Users\jnnngs\OneDrive\Documents\Publii\sites\jnnngs\preview/hello-world.html",
-            "url": "file:///C:\Users\jnnngs\OneDrive\Documents\Publii\sites\jnnngs\preview/hello-world.html",
+            "id": "https://github.com/jnnngs/jnnngs.github.io/hello-world.html",
+            "url": "https://github.com/jnnngs/jnnngs.github.io/hello-world.html",
             "title": "Hello World",
             "summary": "First post using Publii CMS which is a static HTML creation tool. I intend to use this tool for content with Jenkins to auto-deploy to&hellip;",
             "content_html": "<p>First post using Publii CMS which is a static HTML creation tool. I intend to use this tool for content with Jenkins to auto-deploy to jnnn.gs</p>",

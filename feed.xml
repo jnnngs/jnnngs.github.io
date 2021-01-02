@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>jnnngs</title>
-    <link href="file:///C:\Users\jnnngs\OneDrive\Documents\Publii\sites\jnnngs\preview/feed.xml" rel="self" />
-    <link href="file:///C:\Users\jnnngs\OneDrive\Documents\Publii\sites\jnnngs\preview" />
+    <link href="https://github.com/jnnngs/jnnngs.github.io/feed.xml" rel="self" />
+    <link href="https://github.com/jnnngs/jnnngs.github.io" />
     <updated>2021-01-02T13:25:06+00:00</updated>
     <author>
         <name>Paul Jennings</name>
     </author>
-    <id>file:///C:\Users\jnnngs\OneDrive\Documents\Publii\sites\jnnngs\preview</id>
+    <id>https://github.com/jnnngs/jnnngs.github.io</id>
 
     <entry>
         <title>Hello World</title>
         <author>
             <name>Paul Jennings</name>
         </author>
-        <link href="file:///C:\Users\jnnngs\OneDrive\Documents\Publii\sites\jnnngs\preview/hello-world.html"/>
-        <id>file:///C:\Users\jnnngs\OneDrive\Documents\Publii\sites\jnnngs\preview/hello-world.html</id>
+        <link href="https://github.com/jnnngs/jnnngs.github.io/hello-world.html"/>
+        <id>https://github.com/jnnngs/jnnngs.github.io/hello-world.html</id>
 
         <updated>2021-01-02T13:25:06+00:00</updated>
             <summary>
