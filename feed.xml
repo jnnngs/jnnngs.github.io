@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>jnnngs</title>
-    <link href="https://github.com/jnnngs/jnnngs.github.io/feed.xml" rel="self" />
-    <link href="https://github.com/jnnngs/jnnngs.github.io" />
+    <link href="https://jnnn.gs/feed.xml" rel="self" />
+    <link href="https://jnnn.gs" />
     <updated>2021-01-02T13:25:06+00:00</updated>
     <author>
         <name>Paul Jennings</name>
     </author>
-    <id>https://github.com/jnnngs/jnnngs.github.io</id>
+    <id>https://jnnn.gs</id>
 
     <entry>
         <title>Hello World</title>
         <author>
             <name>Paul Jennings</name>
         </author>
-        <link href="https://github.com/jnnngs/jnnngs.github.io/hello-world.html"/>
-        <id>https://github.com/jnnngs/jnnngs.github.io/hello-world.html</id>
+        <link href="https://jnnn.gs/hello-world.html"/>
+        <id>https://jnnn.gs/hello-world.html</id>
 
         <updated>2021-01-02T13:25:06+00:00</updated>
             <summary>
