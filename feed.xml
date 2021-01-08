@@ -3,12 +3,33 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-01-07T10:51:14+00:00</updated>
+    <updated>2021-01-08T08:55:36+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
     <id>https://jnnn.gs</id>
 
+    <entry>
+        <title>Jenkins Deployment ssh-keygen</title>
+        <author>
+            <name>Jnnngs</name>
+        </author>
+        <link href="https://jnnn.gs/jenkins-deployment-ssh-keygen.html"/>
+        <id>https://jnnn.gs/jenkins-deployment-ssh-keygen.html</id>
+
+        <updated>2021-01-08T08:55:36+00:00</updated>
+            <summary>
+                <![CDATA[
+                    So, as part of my home lab and the automatic deployment of this blog, Jenkins needs to SSH onto the deployment Raspberry Pi to execute a bash script. Jenkins has been installed using its own username and as it is a service account, the method&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>So, as part of my home lab and the automatic deployment of this blog, Jenkins needs to SSH onto the deployment Raspberry Pi to execute a bash script. Jenkins has been installed using its own username and as it is a service account, the method to generate and cope the ssh-gen keys is different to the standard way for normal linux/ubuntu user accounts.</p>
+<p><code>#Jekins is a service account, so it needs its ssh keys for remote execution to be created differently...</code><br><br><code>#login to jenkins server and switch to jenkins service user account</code><br><code>sudo su -s /bin/bash jenkins</code><br><br><code>#create keys. default location will be /var/lib/jenkins/.ssh/id_rsa</code><br><code>ssh-keygen</code><br><br><code>#copy keys over to destination server</code><br><code>cat /var/lib/jenkins/.ssh/id_rsa.pub | ssh <a href="mailto:ubuntu@DEPLOYMENT">ubuntu@<span style="color: #2dc26b;">DEPLOYMENT</span></a><span style="color: #2dc26b;">_IP_ADDRESS</span> "mkdir -p ~/.ssh &amp;&amp; touch ~/.ssh/authorized_keys &amp;&amp; chmod -R go= ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys"</code><br><br></p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Hello World</title>
         <author>
