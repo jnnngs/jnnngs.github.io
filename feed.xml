@@ -3,7 +3,7 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-01-08T17:24:03+00:00</updated>
+    <updated>2021-01-08T17:27:56+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://jnnn.gs/how-to-configure-multiple-domains-with-nginx.html"/>
         <id>https://jnnn.gs/how-to-configure-multiple-domains-with-nginx.html</id>
 
-        <updated>2021-01-08T17:24:03+00:00</updated>
+        <updated>2021-01-08T17:27:56+00:00</updated>
             <summary>
                 <![CDATA[
                     Configure First DomainThe default configuration file for Nginx is /etc/nginx/nginx.conf, and we’re free to add our domains to this configuration. However, it is strongly recommended not do that. The single, biggest reason not to combine all domains in one configuration is that it will become&hellip;
@@ -37,7 +37,16 @@
 <pre>server {
      listen 80;
      listen [::]:80;
-     server_name <code><span style="color: #2dc26b;">domain_two</span></code>.com www.<code><span style="color: #2dc26b;">domain_two</span></code>.com; <br><br>root /var/www/domain-two.com/public_html; <br><br>index index.html index.htm;<br><br>location / { <br>try_files $uri $uri/ =404;<br>} <br>}</pre>
+     server_name domain-two.com www.domain-two.com;
+
+     root /var/www/domain-two.com/public_html;
+
+     index index.html index.htm;
+
+     location / {
+          try_files $uri $uri/ =404;
+     }
+}</pre>
 <p>Following this, you need to create the symbolic link.</p>
 <p><code>sudo ln -s /etc/nginx/sites-available/<span style="color: #2dc26b;">domain_two</span> /etc/nginx/sites-enabled/<span style="color: #2dc26b;">domain_two</span></code></p>
 <h2>Start or restart the Nginx service</h2>
