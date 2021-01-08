@@ -3,7 +3,7 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-01-08T17:27:56+00:00</updated>
+    <updated>2021-01-08T17:30:34+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://jnnn.gs/how-to-configure-multiple-domains-with-nginx.html"/>
         <id>https://jnnn.gs/how-to-configure-multiple-domains-with-nginx.html</id>
 
-        <updated>2021-01-08T17:27:56+00:00</updated>
+        <updated>2021-01-08T17:30:34+00:00</updated>
             <summary>
                 <![CDATA[
                     Configure First DomainThe default configuration file for Nginx is /etc/nginx/nginx.conf, and we’re free to add our domains to this configuration. However, it is strongly recommended not do that. The single, biggest reason not to combine all domains in one configuration is that it will become&hellip;
