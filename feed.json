@@ -10,6 +10,20 @@
     },
     "items": [
         {
+            "id": "https://jnnn.gs/webdav-urls-of-common-cloud-storage-services.html",
+            "url": "https://jnnn.gs/webdav-urls-of-common-cloud-storage-services.html",
+            "title": "WebDAV URLs of Common Cloud Storage Services",
+            "summary": "This is a list of the most common WebDAV URLs you need to enter into the iOS and Android app if you want to connect to your cloud storage service. * pCloud disables WebDAV access when 2FA is enabled.",
+            "content_html": "<p>This is a list of the most common WebDAV URLs you need to enter into the iOS and Android app if you want to connect to your cloud storage service.</p>\n<table>\n<thead>\n<tr>\n<th>Cloud Storage Service</th>\n<th>URL</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1&amp;1 Online-Speicher (DSL)</td>\n<td>https://sd2dav.1und1.de</td>\n</tr>\n<tr>\n<td>1&amp;1 Online-Speicher (Webhosting)</td>\n<td>https://webdav.office.1und1.de</td>\n</tr>\n<tr>\n<td>blaucloud</td>\n<td>https://{username}.blaucloud.de/remote.php/webdav</td>\n</tr>\n<tr>\n<td>Box</td>\n<td>https://dav.box.com/dav</td>\n</tr>\n<tr>\n<td>freenetcloud</td>\n<td>https://webmail.freenet.de/webdav</td>\n</tr>\n<tr>\n<td>GMX MediaCenter</td>\n<td>https://webdav.mc.gmx.net</td>\n</tr>\n<tr>\n<td>HiDrive</td>\n<td>https://webdav.hidrive.strato.com</td>\n</tr>\n<tr>\n<td>IceDrive</td>\n<td>https://webdav.icedrive.io/</td>\n</tr>\n<tr>\n<td>IDrive</td>\n<td>https://dav.idrivesync.com</td>\n</tr>\n<tr>\n<td>kDrive</td>\n<td>https://connect.drive.infomaniak.com</td>\n</tr>\n<tr>\n<td>Koofr</td>\n<td>https://app.koofr.net/dav/Koofr</td>\n</tr>\n<tr>\n<td>MagentaCLOUD</td>\n<td>https://webdav.magentacloud.de</td>\n</tr>\n<tr>\n<td>Mail.Ru</td>\n<td>https://webdav.cloud.mail.ru</td>\n</tr>\n<tr>\n<td>Nextcloud</td>\n<td>https://{host}/{path}/remote.php/dav/files/{username}<br>or<br>https://{host}/{path}/remote.php/webdav</td>\n</tr>\n<tr>\n<td>ownCloud</td>\n<td>https://{host}/{path}/remote.php/webdav</td>\n</tr>\n<tr>\n<td>pCloud* (US)</td>\n<td>https://webdav.pcloud.com</td>\n</tr>\n<tr>\n<td>pCloud* (EU)</td>\n<td>https://ewebdav.pcloud.com</td>\n</tr>\n<tr>\n<td>Seafile (self-hosted)</td>\n<td>https://{host}/{path}/seafdav</td>\n</tr>\n<tr>\n<td>STACK</td>\n<td>https://{username}.stackstorage.com/remote.php/webdav</td>\n</tr>\n<tr>\n<td>Strato HiDrive</td>\n<td>https://webdav.hidrive.strato.com</td>\n</tr>\n<tr>\n<td>Syncwerk (formerly Seafile.de)</td>\n<td>https://app.syncwerk.com/seafdav</td>\n</tr>\n<tr>\n<td>WEB.DE Online-Speicher</td>\n<td>https://webdav.smartdrive.web.de</td>\n</tr>\n<tr>\n<td>wölkli</td>\n<td>https://cloud.woelkli.com/remote.php/webdav</td>\n</tr>\n<tr>\n<td>Yandex.Disk</td>\n<td>https://webdav.yandex.com</td>\n</tr>\n<tr>\n<td>Mailbox.org</td>\n<td>https://dav.mailbox.org/servlet/webdav.infostore/</td>\n</tr>\n</tbody>\n</table>\n<p>* pCloud disables WebDAV access when 2FA is enabled.</p>",
+            "author": {
+                "name": "Jnnngs"
+            },
+            "tags": [
+            ],
+            "date_published": "2021-01-09T16:55:00+00:00",
+            "date_modified": "2021-01-09T16:55:00+00:00"
+        },
+        {
             "id": "https://jnnn.gs/how-to-configure-multiple-domains-with-nginx.html",
             "url": "https://jnnn.gs/how-to-configure-multiple-domains-with-nginx.html",
             "title": "How to configure Multiple Domains with Nginx",
