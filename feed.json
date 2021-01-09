@@ -41,15 +41,15 @@
             "id": "https://jnnn.gs/hello-world.html",
             "url": "https://jnnn.gs/hello-world.html",
             "title": "Hello World",
-            "summary": "First post using Publii CMS which is a static HTML creation tool. I intend to use this tool for content with Jenkins to auto-deploy to jnnn.gs Publii CMS --&gt; HTML on GitHub --&gt; Jenkins on Rasp --&gt; SAST --&gt; Deploy on Rasp --&gt; DAST ",
-            "content_html": "<p>First post using Publii CMS which is a static HTML creation tool. I intend to use this tool for content with Jenkins to auto-deploy to jnnn.gs</p>\n<p><code>Publii CMS --&gt; HTML on GitHub --&gt; Jenkins on Rasp --&gt; SAST --&gt; Deploy on Rasp --&gt; DAST </code></p>\n<p> </p>",
+            "summary": "First post using Publii CMS which is a static HTML creation tool. I intend to use this tool for content with Jenkins to auto-deploy to jnnn.gs. Publii CMS --&gt; HTML on GitHub --&gt; Jenkins on Rasp --&gt; SAST --&gt; Deploy on Rasp --&gt; DAST ",
+            "content_html": "<p>First post using Publii CMS which is a static HTML creation tool. I intend to use this tool for content with Jenkins to auto-deploy to jnnn.gs.</p>\n<p><code>Publii CMS --&gt; HTML on GitHub --&gt; Jenkins on Rasp --&gt; SAST --&gt; Deploy on Rasp --&gt; DAST </code></p>\n<p> </p>",
             "author": {
                 "name": "Jnnngs"
             },
             "tags": [
             ],
             "date_published": "2021-01-02T13:03:19+00:00",
-            "date_modified": "2021-01-08T18:55:57+00:00"
+            "date_modified": "2021-01-09T16:46:54+00:00"
         }
     ]
 }

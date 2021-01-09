@@ -3,7 +3,7 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-01-08T18:55:57+00:00</updated>
+    <updated>2021-01-09T16:46:54+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
@@ -87,15 +87,15 @@
         <link href="https://jnnn.gs/hello-world.html"/>
         <id>https://jnnn.gs/hello-world.html</id>
 
-        <updated>2021-01-08T18:55:57+00:00</updated>
+        <updated>2021-01-09T16:46:54+00:00</updated>
             <summary>
                 <![CDATA[
-                    First post using Publii CMS which is a static HTML creation tool. I intend to use this tool for content with Jenkins to auto-deploy to jnnn.gs Publii CMS --&gt; HTML on GitHub --&gt; Jenkins on Rasp --&gt; SAST --&gt; Deploy on Rasp --&gt; DAST 
+                    First post using Publii CMS which is a static HTML creation tool. I intend to use this tool for content with Jenkins to auto-deploy to jnnn.gs. Publii CMS --&gt; HTML on GitHub --&gt; Jenkins on Rasp --&gt; SAST --&gt; Deploy on Rasp --&gt; DAST 
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                <p>First post using Publii CMS which is a static HTML creation tool. I intend to use this tool for content with Jenkins to auto-deploy to jnnn.gs</p>
+                <p>First post using Publii CMS which is a static HTML creation tool. I intend to use this tool for content with Jenkins to auto-deploy to jnnn.gs.</p>
 <p><code>Publii CMS --&gt; HTML on GitHub --&gt; Jenkins on Rasp --&gt; SAST --&gt; Deploy on Rasp --&gt; DAST </code></p>
 <p> </p>
             ]]>
