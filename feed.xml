@@ -3,12 +3,74 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-01-14T09:10:29+00:00</updated>
+    <updated>2021-01-15T16:03:54+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
     <id>https://jnnn.gs</id>
 
+    <entry>
+        <title>Azure Private Endpoints Vs Service Endpoints</title>
+        <author>
+            <name>Jnnngs</name>
+        </author>
+        <link href="https://jnnn.gs/azure-private-endpoints-vs-service-endpoints.html"/>
+        <id>https://jnnn.gs/azure-private-endpoints-vs-service-endpoints.html</id>
+
+        <updated>2021-01-15T16:03:54+00:00</updated>
+            <summary>
+                <![CDATA[
+                    Following a deep dive into the world of Azure endpoints, I found it interesting that there is a misconception of the primary uses (and any secondary uses) of Azure Private Endpoints. It seems that they are being used when a Service Endpoint is perfectly suitable&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Following a deep dive into the world of Azure endpoints, I found it interesting that there is a misconception of the primary uses (and any secondary uses) of Azure Private Endpoints. It seems that they are being used when a Service Endpoint is perfectly suitable (and free) to use. I have lightly written this up as a reminder for me in future and if its of use for anyone else.</p>
+<p>The following is broken up between Public, Private and Service endpoints. I'll try and capture the primary use case for each, pros and cons and anything further of interest. As this topic is vast, there are bound to be a few things not covered but I shall intent to keep this topic updated as and when its useful to do so.</p>
+<h2>Public Endpoint</h2>
+<figure class="post__image" ><img loading="lazy" src="https://jnnn.gs/media/posts/5//PublicEndpoint.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/5//responsive/PublicEndpoint-xs.png 300w ,https://jnnn.gs/media/posts/5//responsive/PublicEndpoint-sm.png 480w ,https://jnnn.gs/media/posts/5//responsive/PublicEndpoint-md.png 768w ,https://jnnn.gs/media/posts/5//responsive/PublicEndpoint-lg.png 1024w ,https://jnnn.gs/media/posts/5//responsive/PublicEndpoint-xl.png 1360w ,https://jnnn.gs/media/posts/5//responsive/PublicEndpoint-2xl.png 1600w"  alt="Public Endpoint" width="436" height="644">
+<figcaption >Figure: #1 Public Endpoint</figcaption>
+</figure>
+<p><strong>When to use Public Endpoints</strong>:<br>  <br>When secure but public internet routing  isn't an issue for either direct to Storage account or via VNET components.</p>
+<p><strong>Pros</strong></p>
+<p>1.Simple solution</p>
+<p>2.Storage account options to control networking connection type (TLS version) and source access via Firewalls and virtual networks (public internet, VNETs)</p>
+<p>3.No additional costs</p>
+<p><strong>Cons</strong></p>
+<p>1.Traffic routed over public internet (if this is an issue)</p>
+<h2>Private Endpoint</h2>
+<figure class="post__image" ><img loading="lazy" src="https://jnnn.gs/media/posts/5/PrivateEndpoint-2.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/5/responsive/PrivateEndpoint-2-xs.png 300w ,https://jnnn.gs/media/posts/5/responsive/PrivateEndpoint-2-sm.png 480w ,https://jnnn.gs/media/posts/5/responsive/PrivateEndpoint-2-md.png 768w ,https://jnnn.gs/media/posts/5/responsive/PrivateEndpoint-2-lg.png 1024w ,https://jnnn.gs/media/posts/5/responsive/PrivateEndpoint-2-xl.png 1360w ,https://jnnn.gs/media/posts/5/responsive/PrivateEndpoint-2-2xl.png 1600w"  alt="Private Endpoint" width="425" height="572">
+<figcaption >Figure: #2 Private Endpoint</figcaption>
+</figure>
+<p><strong>When to use Private Endpoints</strong>:<br>  <br>When non-public internet access is required to an Azure PaaS component via express route or S2S VPN. Other uses are possible, but a standard Service Endpoint should be considered as a Private Endpoint is likely to be overkill for a non-express route or S2S VPN use case.</p>
+<p><strong>Pros</strong></p>
+<p>1.Private IPs used</p>
+<p>2.No public internet traffic or public IP is present</p>
+<p>3.Optional data exfiltration, locking private access directly to the storage account instance, preventing communications with other instances</p>
+<p><strong>Cons</strong></p>
+<p>1.Set-up is slightly more involved than service endpoints</p>
+<p>2.Charges per hour, inbound traffic and outbound traffic</p>
+<p>3.NSG is not supported on private endpoints</p>
+<p>4.Targets a specific use case</p>
+<p>5.Each storage account (and type) needs its own private endpoint</p>
+<h2>Service Endpoint</h2>
+<figure class="post__image" ><img loading="lazy" src="https://jnnn.gs/media/posts/5/ServiceEndpoint.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/5/responsive/ServiceEndpoint-xs.png 300w ,https://jnnn.gs/media/posts/5/responsive/ServiceEndpoint-sm.png 480w ,https://jnnn.gs/media/posts/5/responsive/ServiceEndpoint-md.png 768w ,https://jnnn.gs/media/posts/5/responsive/ServiceEndpoint-lg.png 1024w ,https://jnnn.gs/media/posts/5/responsive/ServiceEndpoint-xl.png 1360w ,https://jnnn.gs/media/posts/5/responsive/ServiceEndpoint-2xl.png 1600w"  alt="Service Endpoint" width="418" height="584">
+<figcaption >Figure: #4 Service Endpoint</figcaption>
+</figure>
+<p><strong>When to use Service Endpoint</strong>:<br>  <br>When restricted or non-public internet access is required to an Azure PaaS component from an existing VNET</p>
+<p><strong>Pros</strong></p>
+<p>1.Simple set-up</p>
+<p>a.create service end point on VNET/Subnet(s)</p>
+<p>b.Limit storage account network access to same VNET/subnet(s)</p>
+<p>2.No additional costs</p>
+<p>3.Private IPs used</p>
+<p>4.No public internet traffic</p>
+<p><strong>Cons</strong></p>
+<p>1.Public IP exists although unusable</p>
+<p>2.Any existing public IP firewall rules will need to be reconfigured</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>WebDAV URLs of Common Cloud Storage Services</title>
         <author>

@@ -5,6 +5,22 @@
 <loc>https://jnnn.gs/</loc>
 </url>
 <url>
+<loc>https://jnnn.gs/azure-private-endpoints-vs-service-endpoints.html</loc>
+<lastmod>2021-01-15T16:03:54+00:00</lastmod>
+<image:image>
+<image:loc>https://jnnn.gs/media\posts\5//PublicEndpoint.png</image:loc>
+<image:title><![CDATA[Public Endpoint]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://jnnn.gs/media\posts\5/PrivateEndpoint-2.png</image:loc>
+<image:title><![CDATA[Private Endpoint]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://jnnn.gs/media\posts\5/ServiceEndpoint.png</image:loc>
+<image:title><![CDATA[Service Endpoint]]></image:title>
+</image:image>
+</url>
+<url>
 <loc>https://jnnn.gs/hello-world.html</loc>
 <lastmod>2021-01-14T09:10:29+00:00</lastmod>
 </url>
