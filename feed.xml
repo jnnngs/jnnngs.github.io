@@ -3,7 +3,7 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-01-15T16:03:54+00:00</updated>
+    <updated>2021-01-16T11:20:55+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://jnnn.gs/azure-private-endpoints-vs-service-endpoints.html"/>
         <id>https://jnnn.gs/azure-private-endpoints-vs-service-endpoints.html</id>
 
-        <updated>2021-01-15T16:03:54+00:00</updated>
+        <updated>2021-01-16T11:20:55+00:00</updated>
             <summary>
                 <![CDATA[
                     Following a deep dive into the world of Azure endpoints, I found it interesting that there is a misconception of the primary uses (and any secondary uses) of Azure Private Endpoints. It seems that they are being used when a Service Endpoint is perfectly suitable&hellip;
@@ -27,10 +27,12 @@
             <![CDATA[
                 <p>Following a deep dive into the world of Azure endpoints, I found it interesting that there is a misconception of the primary uses (and any secondary uses) of Azure Private Endpoints. It seems that they are being used when a Service Endpoint is perfectly suitable (and free) to use. I have lightly written this up as a reminder for me in future and if its of use for anyone else.</p>
 <p>The following is broken up between Public, Private and Service endpoints. I'll try and capture the primary use case for each, pros and cons and anything further of interest. As this topic is vast, there are bound to be a few things not covered but I shall intent to keep this topic updated as and when its useful to do so.</p>
+<p><a href="https://www.youtube.com/watch?v=4v-9zGHxVeI" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=4v-9zGHxVeI</a></p>
 <h2>Public Endpoint</h2>
 <figure class="post__image" ><img loading="lazy" src="https://jnnn.gs/media/posts/5//PublicEndpoint.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/5//responsive/PublicEndpoint-xs.png 300w ,https://jnnn.gs/media/posts/5//responsive/PublicEndpoint-sm.png 480w ,https://jnnn.gs/media/posts/5//responsive/PublicEndpoint-md.png 768w ,https://jnnn.gs/media/posts/5//responsive/PublicEndpoint-lg.png 1024w ,https://jnnn.gs/media/posts/5//responsive/PublicEndpoint-xl.png 1360w ,https://jnnn.gs/media/posts/5//responsive/PublicEndpoint-2xl.png 1600w"  alt="Public Endpoint" width="436" height="644">
 <figcaption >Figure: #1 Public Endpoint</figcaption>
 </figure>
+<p>Traffic is routed over the internet, using the public IP endpoints.</p>
 <p><strong>When to use Public Endpoints</strong>:<br>  <br>When secure but public internet routing  isn't an issue for either direct to Storage account or via VNET components.</p>
 <p><strong>Pros</strong></p>
 <p>1.Simple solution</p>
@@ -42,6 +44,9 @@
 <figure class="post__image" ><img loading="lazy" src="https://jnnn.gs/media/posts/5/PrivateEndpoint-2.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/5/responsive/PrivateEndpoint-2-xs.png 300w ,https://jnnn.gs/media/posts/5/responsive/PrivateEndpoint-2-sm.png 480w ,https://jnnn.gs/media/posts/5/responsive/PrivateEndpoint-2-md.png 768w ,https://jnnn.gs/media/posts/5/responsive/PrivateEndpoint-2-lg.png 1024w ,https://jnnn.gs/media/posts/5/responsive/PrivateEndpoint-2-xl.png 1360w ,https://jnnn.gs/media/posts/5/responsive/PrivateEndpoint-2-2xl.png 1600w"  alt="Private Endpoint" width="425" height="572">
 <figcaption >Figure: #2 Private Endpoint</figcaption>
 </figure>
+<p>Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. You can think of this as a new virtual network card on the PaaS component (e.g. Storage account) which is then assigned to the VNET/Subnet. This addresses the main exam question of accessing an Azure PaaS component <strong>DIRECTLY</strong> via Express Route or Site-To-Site VPN and not having to target the public IP endpoint. A service endpoint doesn't solve this problem.</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview" target="_blank" rel="noopener noreferrer">https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview</a></p>
+<div><a href="https://youtu.be/uBN3AVARUiI?t=110" target="_blank" rel="noopener noreferrer">https://youtu.be/uBN3AVARUiI?t=110</a></div>
 <p><strong>When to use Private Endpoints</strong>:<br>  <br>When non-public internet access is required to an Azure PaaS component via express route or S2S VPN. Other uses are possible, but a standard Service Endpoint should be considered as a Private Endpoint is likely to be overkill for a non-express route or S2S VPN use case.</p>
 <p><strong>Pros</strong></p>
 <p>1.Private IPs used</p>
@@ -57,6 +62,10 @@
 <figure class="post__image" ><img loading="lazy" src="https://jnnn.gs/media/posts/5/ServiceEndpoint.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/5/responsive/ServiceEndpoint-xs.png 300w ,https://jnnn.gs/media/posts/5/responsive/ServiceEndpoint-sm.png 480w ,https://jnnn.gs/media/posts/5/responsive/ServiceEndpoint-md.png 768w ,https://jnnn.gs/media/posts/5/responsive/ServiceEndpoint-lg.png 1024w ,https://jnnn.gs/media/posts/5/responsive/ServiceEndpoint-xl.png 1360w ,https://jnnn.gs/media/posts/5/responsive/ServiceEndpoint-2xl.png 1600w"  alt="Service Endpoint" width="418" height="584">
 <figcaption >Figure: #4 Service Endpoint</figcaption>
 </figure>
+<p>Virtual network rule(s) can secure the Azure service resources to your virtual network. The rule addition provides improved security by fully removing public internet access to resources and allowing traffic only from your virtual network.</p>
+<p>When service endpoint is enabled for storage accounts, the identity of the virtual network  will be made available to the storage account(s). All source IPs from the <br>VNET/Subnet(s) will be private IPs.<br><br>When the VM connects to the storage account, the storage account knows which virtual network and which subnet the request has come from. The VM IP visibile to the storage account will be the private IP address and not the public IP. The VM still believes it is connecting to the storage account public IP, but the traffic never leave the Azure  backbone. i.e. private IP is used</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview" target="_blank" rel="noopener noreferrer">https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview</a></p>
+<p><a href="https://www.youtube.com/watch?v=q8s-zmHighs" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=q8s-zmHighs</a></p>
 <p><strong>When to use Service Endpoint</strong>:<br>  <br>When restricted or non-public internet access is required to an Azure PaaS component from an existing VNET</p>
 <p><strong>Pros</strong></p>
 <p>1.Simple set-up</p>
