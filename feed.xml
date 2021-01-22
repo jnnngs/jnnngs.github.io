@@ -3,7 +3,7 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-01-22T08:05:42+00:00</updated>
+    <updated>2021-01-22T08:56:21+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://jnnn.gs/azure-private-endpoints-vs-service-endpoints.html"/>
         <id>https://jnnn.gs/azure-private-endpoints-vs-service-endpoints.html</id>
 
-        <updated>2021-01-22T08:05:42+00:00</updated>
+        <updated>2021-01-22T08:56:21+00:00</updated>
             <summary>
                 <![CDATA[
                     Following a deep dive into the world of Azure endpoints, I found it interesting that there is a misconception of the primary uses (and any secondary uses) of Azure Private Endpoints. It seems that they are being used when a Service Endpoint is perfectly suitable&hellip;
@@ -74,7 +74,7 @@
 <p>   a.create service end point on VNET/Subnet(s)</p>
 <p>   b.Limit storage account network access to same VNET/subnet(s)</p>
 <p>2.No additional costs</p>
-<p>3.Private address is used*</p>
+<p>3.Public address continued to be used, although Azure routing uses internal backbone*</p>
 <p>4.No public internet traffic, by configuring PaaS service firewall rules</p>
 <p><strong>Cons</strong></p>
 <p>1.Public address exists although unusable</p>
