@@ -3,7 +3,7 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-01-20T14:55:46+00:00</updated>
+    <updated>2021-01-22T08:05:42+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://jnnn.gs/azure-private-endpoints-vs-service-endpoints.html"/>
         <id>https://jnnn.gs/azure-private-endpoints-vs-service-endpoints.html</id>
 
-        <updated>2021-01-20T14:55:46+00:00</updated>
+        <updated>2021-01-22T08:05:42+00:00</updated>
             <summary>
                 <![CDATA[
                     Following a deep dive into the world of Azure endpoints, I found it interesting that there is a misconception of the primary uses (and any secondary uses) of Azure Private Endpoints. It seems that they are being used when a Service Endpoint is perfectly suitable&hellip;
@@ -49,7 +49,7 @@
 <div><a href="https://youtu.be/uBN3AVARUiI?t=110" target="_blank" rel="noopener noreferrer">https://youtu.be/uBN3AVARUiI?t=110</a></div>
 <p><strong>When to use Private Endpoints</strong>:<br>  <br>When non-public internet access is required to an Azure PaaS component via express route or S2S VPN. Other uses are possible, but a standard Service Endpoint should be considered as a Private Endpoint is likely to be overkill for a non-express route or S2S VPN use case.</p>
 <p><strong>Pros</strong></p>
-<p>1.Private IPs used</p>
+<p>1.Private address used</p>
 <p>2.No public internet traffic or public IP is present</p>
 <p>3.Optional data exfiltration, locking private access directly to the storage account instance, preventing communications with other instances</p>
 <p><strong>Cons</strong></p>
@@ -71,13 +71,13 @@
 <p><strong>When to use Service Endpoint</strong>:<br>  <br>When restricted or non-public internet access is required to an Azure PaaS component from an existing VNET</p>
 <p><strong>Pros</strong></p>
 <p>1.Simple set-up</p>
-<p>a.create service end point on VNET/Subnet(s)</p>
-<p>b.Limit storage account network access to same VNET/subnet(s)</p>
+<p>   a.create service end point on VNET/Subnet(s)</p>
+<p>   b.Limit storage account network access to same VNET/subnet(s)</p>
 <p>2.No additional costs</p>
-<p>3.Private IPs used*</p>
-<p>4.No public internet traffic</p>
+<p>3.Private address is used*</p>
+<p>4.No public internet traffic, by configuring PaaS service firewall rules</p>
 <p><strong>Cons</strong></p>
-<p>1.Public IP exists although unusable</p>
+<p>1.Public address exists although unusable</p>
 <p>2.Any existing public IP firewall rules will need to be reconfigured</p>
 <p>*Please note that no changes are required to the requesting PaaS component as this continues to use the public endpoint FQDN. Azure returns the private IP rather than the public IP, knowing that a service endpoint is in use.</p>
             ]]>
