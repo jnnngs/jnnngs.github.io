@@ -3,12 +3,71 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-01-22T08:56:21+00:00</updated>
+    <updated>2021-03-26T16:45:13+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
     <id>https://jnnn.gs</id>
 
+    <entry>
+        <title>ETH2 Node Reduce Disk Space Usage</title>
+        <author>
+            <name>Jnnngs</name>
+        </author>
+        <link href="https://jnnn.gs/eth2-node-reduce-disk-space-usage.html"/>
+        <id>https://jnnn.gs/eth2-node-reduce-disk-space-usage.html</id>
+
+        <updated>2021-03-26T15:02:35+00:00</updated>
+            <summary>
+                <![CDATA[
+                    So, I have a ETH2 validator node which uses a Hetzner AX41 dedicated server and has been running since genesis. The set-up includes a GETH ETH1 node, beacon chain and the ETH2 Validator (Prysm) and is slowly using the allocated 1TB NVMe disk space (2&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>So, I have a ETH2 validator node which uses a Hetzner AX41 dedicated server and has been running since genesis. The set-up includes a GETH ETH1 node, beacon chain and the ETH2 Validator (Prysm) and is slowly using the allocated 1TB NVMe disk space (2 x 512GB using RAID 0). I reached out to the Prysm Discord channel to seek advice and what is best to do. A very friendly mod replied and I thought it useful to share in ase anyone else has the same challenge.</p>
+<p>I'm planning to go with option 1, as I already have infura failover configured. Another option is to add 2 x more NVMe disks from Hetzner and then add them to the OS. This would mean 20 minutes downtime, so an option for future need.</p>
+<p> </p>
+<div id="chat-messages-825015216634593311" class="message-2qnXI6 cozyMessage-3V1Y8y wrapper-2a6GCs cozy-3raOZG zalgo-jN1Ica" tabindex="-1" role="listitem" data-list-item-id="chat-messages___chat-messages-825015216634593311">
+<div class="contents-2mQqc9" role="document">
+<div class="markup-2BOw-j messageContent-2qWWxC"><span style="color: #2dc26b;">1) Configure a failover eth1 - infura free or alchemy free - then offline snapshot prune geth. This requires 50 GiB free. If you have 25 GiB free, we have reports of it failing; more than 25 and less than 50, I guess you will be our guinea pig! Stop geth, and, as the user that geth runs at in production, do a snapshot prune. If geth runs in systemd, it might look like this: <code class="inline">tmux</code> so the prune doesn't get killed early, and then <code class="inline">sudo systemctl stop geth</code> and then <code class="inline">sudo -u GETHUSER geth --datadir /my/data/dir snapshot prune-state</code>. That will take about 4 hours, and then Geth will be back down to around 350 GiB used. The data dir and user will be recorded in <code class="inline">/etc/system/systemd/geth.service</code>, again assuming systemd and <code class="inline">geth</code> as the service name. If you are using eth2-docker, it's even easier; and I assume similar for stefa2k's docker tools. For eth2-docker: <code class="inline">docker-compose stop eth1 &amp;&amp; docker-compose rm eth1</code>, followed by <code class="inline">docker-compose run -d eth1 snapshot prune-state</code>. You can use <code class="inline">docker-compose logs -f eth1</code> to watch it, and when it's done, <code class="inline">docker-compose up -d eth1</code>. </span></div>
+<div> </div>
+<div class="markup-2BOw-j messageContent-2qWWxC"><span style="color: #2dc26b;">2) Stop using geth and rely on infura free with alchemy free failover, or vice versa. This works remarkably well before the consensus upgrade. After the consensus upgrade, running your own geth as an "application client" may be very desirable, but that's at least 9-12 months out.</span></div>
+</div>
+<div class="buttonContainer-DHceWr">
+<div class="buttons-cl5qTG container-3npvBV" aria-label="Message Actions">
+<div class="wrapper-2aW0bm">
+<div class="button-1ZiXG9" tabindex="0" role="button" aria-label="Add Reaction" aria-controls="popout_2378" aria-expanded="false"> </div>
+<div class="button-1ZiXG9" tabindex="0" role="button" aria-label="More" aria-controls="popout_2379" aria-expanded="false"><span style="color: #2dc26b; font-family: var(--font-base); font-size: inherit; font-weight: var(--font-weight-normal);">So choose your adventure: 1) or 2)</span></div>
+</div>
+</div>
+</div>
+</div>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>When to use VNet Peering vs VPN Gateway on Azure</title>
+        <author>
+            <name>Jnnngs</name>
+        </author>
+        <link href="https://jnnn.gs/when-to-use-vnet-peering-vs-vpn-gateway-on-azure.html"/>
+        <id>https://jnnn.gs/when-to-use-vnet-peering-vs-vpn-gateway-on-azure.html</id>
+
+        <updated>2021-03-26T16:45:13+00:00</updated>
+            <summary>
+                <![CDATA[
+                    I was recently playing about with the Hub and Spoke model within Azure and came across two methods to provide connectivity between the two. The idea behind the design pattern is that the Hub is the main entry point with common services for the Spoke(s)&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>I was recently playing about with the <a href="https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli" target="_blank" rel="noopener noreferrer">Hub and Spoke</a> model within Azure and came across two methods to provide connectivity between the two. The idea behind the design pattern is that the Hub is the main entry point with common services for the Spoke(s) to use. The Hub typically has some type of WAF or FW, to help protect and direct the inbound traffic. Its considered best practice that Spokes do not communicate directly with one another, but that all traffic is routed via the Hub. This enables central Hub control and visibility. </p>
+<p>TBC....the rest...</p>
+<p> </p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Azure Private Endpoints Vs Service Endpoints</title>
         <author>
@@ -225,7 +284,7 @@
         <updated>2021-01-08T17:30:34+00:00</updated>
             <summary>
                 <![CDATA[
-                    Configure First DomainThe default configuration file for Nginx is /etc/nginx/nginx.conf, and we’re free to add our domains to this configuration. However, it is strongly recommended not do that. The single, biggest reason not to combine all domains in one configuration is that it will become&hellip;
+                    Configure First Domain The default configuration file for Nginx is /etc/nginx/nginx.conf, and we’re free to add our domains to this configuration. However, it is strongly recommended not do that. The single, biggest reason not to combine all domains in one configuration is that it will&hellip;
                 ]]>
             </summary>
         <content type="html">
