@@ -3,7 +3,7 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-03-27T12:38:24+00:00</updated>
+    <updated>2021-03-27T13:04:04+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://jnnn.gs/eth2-node-reduce-disk-space-usage.html"/>
         <id>https://jnnn.gs/eth2-node-reduce-disk-space-usage.html</id>
 
-        <updated>2021-03-27T12:38:24+00:00</updated>
+        <updated>2021-03-27T13:04:04+00:00</updated>
             <summary>
                 <![CDATA[
                     So, I have a ETH2 validator node which uses a Hetzner AX41 dedicated server and has been running since genesis. The set-up includes a GETH ETH1 node, beacon chain and the ETH2 Validator (Prysm) and is slowly using the allocated 1TB NVMe disk space (2&hellip;
@@ -53,6 +53,9 @@ journalctl -fu geth</code></address><address style="margin: 0in; font-family: Ca
 </figure>
 <figure class="gallery__item"><a href="https://jnnn.gs/media/posts/7/gallery/GethCompact.png" data-size="1357x418"><img loading="lazy" src="https://jnnn.gs/media/posts/7/gallery/GethCompact-thumbnail.png" alt="Compressing" width="720" height="222"></a>
 <figcaption>Compressing Geth dB</figcaption>
+</figure>
+<figure class="gallery__item"><a href="https://jnnn.gs/media/posts/7/gallery/GethFinished.png" data-size="1357x418"><img loading="lazy" src="https://jnnn.gs/media/posts/7/gallery/GethFinished-thumbnail.png" alt="Finished" width="720" height="222"></a>
+<figcaption>Finished Pruning Geth</figcaption>
 </figure>
 </div></div>
 <address><cite style="margin: 0in; font-family: Calibri; font-size: 9.0pt; color: #595959;"> </cite><span style="font-style: italic;">Once pruning and dB compacting has finished...</span></address>
