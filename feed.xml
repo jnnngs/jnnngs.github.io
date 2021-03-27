@@ -3,7 +3,7 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-03-27T11:35:45+00:00</updated>
+    <updated>2021-03-27T11:37:36+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://jnnn.gs/eth2-node-reduce-disk-space-usage.html"/>
         <id>https://jnnn.gs/eth2-node-reduce-disk-space-usage.html</id>
 
-        <updated>2021-03-27T11:35:45+00:00</updated>
+        <updated>2021-03-27T11:37:36+00:00</updated>
             <summary>
                 <![CDATA[
                     So, I have a ETH2 validator node which uses a Hetzner AX41 dedicated server and has been running since genesis. The set-up includes a GETH ETH1 node, beacon chain and the ETH2 Validator (Prysm) and is slowly using the allocated 1TB NVMe disk space (2&hellip;
@@ -82,8 +82,7 @@ geth status</code></p>
 journalctl -fu geth</code></p>
 <p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </p>
 <blockquote style="margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #595959;"><span style="font-style: italic;">Logs should look something like this…</span></blockquote>
-<figure class="post__image"><img loading="lazy"  src="https://jnnn.gs/media/posts/7/GethPrune.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/7/responsive/GethPrune-xs.png 300w ,https://jnnn.gs/media/posts/7/responsive/GethPrune-sm.png 480w ,https://jnnn.gs/media/posts/7/responsive/GethPrune-md.png 768w ,https://jnnn.gs/media/posts/7/responsive/GethPrune-lg.png 1024w ,https://jnnn.gs/media/posts/7/responsive/GethPrune-xl.png 1360w ,https://jnnn.gs/media/posts/7/responsive/GethPrune-2xl.png 1600w"  alt="" width="1333" height="418"></figure>
-<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </p>
+<figure class="post__image post__image--center"><img loading="lazy"  src="https://jnnn.gs/media/posts/7/GethPrune-2.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/7/responsive/GethPrune-2-xs.png 300w ,https://jnnn.gs/media/posts/7/responsive/GethPrune-2-sm.png 480w ,https://jnnn.gs/media/posts/7/responsive/GethPrune-2-md.png 768w ,https://jnnn.gs/media/posts/7/responsive/GethPrune-2-lg.png 1024w ,https://jnnn.gs/media/posts/7/responsive/GethPrune-2-xl.png 1360w ,https://jnnn.gs/media/posts/7/responsive/GethPrune-2-2xl.png 1600w"  alt="Geth Pruning" width="1333" height="418"></figure>
 <p><cite style="margin: 0in; font-family: Calibri; font-size: 9.0pt; color: #595959;"> </cite><span style="font-style: italic;">Once pruning and dB compacting has finished, </span></p>
 <ol style="margin-left: .375in; direction: ltr; unicode-bidi: embed; margin-top: 0in; margin-bottom: 0in; font-family: Calibri; font-size: 11.0pt; font-weight: normal; font-style: normal;" type="1">
 <li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;" value="1"><span style="font-family: Calibri; font-size: 11.0pt; font-weight: normal; font-style: normal;">Stop Geth</span></li>
