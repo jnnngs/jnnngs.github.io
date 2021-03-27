@@ -3,7 +3,7 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-03-27T11:26:54+00:00</updated>
+    <updated>2021-03-27T11:35:45+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://jnnn.gs/eth2-node-reduce-disk-space-usage.html"/>
         <id>https://jnnn.gs/eth2-node-reduce-disk-space-usage.html</id>
 
-        <updated>2021-03-27T11:26:54+00:00</updated>
+        <updated>2021-03-27T11:35:45+00:00</updated>
             <summary>
                 <![CDATA[
                     So, I have a ETH2 validator node which uses a Hetzner AX41 dedicated server and has been running since genesis. The set-up includes a GETH ETH1 node, beacon chain and the ETH2 Validator (Prysm) and is slowly using the allocated 1TB NVMe disk space (2&hellip;
@@ -82,179 +82,9 @@ geth status</code></p>
 journalctl -fu geth</code></p>
 <p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </p>
 <blockquote style="margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #595959;"><span style="font-style: italic;">Logs should look something like this…</span></blockquote>
-<p style="margin: 0in;"><img loading="lazy" src="file:///C:/Users/jnnngs/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png" data-is-external-image="true"  alt="Machine generated alternative text:
-797s 
-Mar 27 
-6881 
-681s 
-Mar 27 
-[03-27 714] 
--mss 
-Mar 27 
-714] 
-471s 
-Mar 27 
-[03-27 714] 
-767s 
-Mar 27 
-7481 
-e Ca=17 ms 
-S2s 
-Mar 27 
-g64s 
-Mar 27 
-7501 
-70ss 
-Mar 27 
-:44.774] 
-531s 
-Mar 27 
-[03-27 774] 
-liss 
-Mar 27 
-467s 
-Mar 27 
-723s 
-12. 
-. 02 
-12:02 : 52 
-44 
-gech[86g221] • 
-gech[86g221] • 
-gech[86g221] • 
-gech[86g221] • 
-gech[86g221] • 
-gech[86g221] • 
-gech[86g221] • 
-gech[86g221] • 
-gech[86g221] • 
-gech[86g221] • 
-gech[86g221] • 
-INFO 
-INFO 
-INFO 
-INFO 
-INFO 
-INFO 
-INFO 
-INFO 
-INFO 
-INFO 
-INFO 
-[03-27 | 12 
-: 02 
-runzng 
-Pruning 
-Pruning 
-Pruning 
-Pruning 
-Pruning 
-Pruning 
-Pruning 
-Pruning 
-Pruning 
-Pruning 
-state 
-st ace 
-state 
-state 
-state 
-state 
-state 
-state 
-state 
-state 
-state 
-data 
-dac a 
-dac a 
-dac a 
-dac a 
-dac a 
-dac a 
-dac a 
-dac a 
-dac a 
-dac a 
-node s — 
-—57183086 
-node s — 
-—60211201 
-node s — 
-—63337230 
-node s — 
-—66426sog 
-node s — 
-—69427201 
-node s — 
-—72568030 
-node s — 
-—75739291 
-node s — 
-—78848001 
-node s — 
-—81894285 
-node s — 
-—85016212 
-node s — 
-—88166401 
-—IS . 83GiB 
-s 1 ze— 
-—16. 67GiB 
-s 1 ze— 
-—17 . S3GiB 
-s 1 ze— 
-—18 . 39GiB 
-s 1 ze— 
-—lg .22GiB 
-s 1 ze— 
-—20 . ogGiB 
-s 1 ze— 
-—20 . g7GiB 
-s 1 ze— 
-—21 . 83GiB 
-s 1 ze— 
-—22 . 67GiB 
-s 1 ze— 
-—23 . S3GiB 
-s 1 ze— 
-—24 . 41GiB 
-s 1 ze— 
-elapsed 
-elapsed 
-elapsed 
-elapsed 
-elapsed 
-elapsed 
-elapsed 
-elapsed 
-elapsed 
-elapsed 
-elapsed 
-=2m24 . 073s 
-=2m32 . oggs 
-=2m40 . oggs 
-=2m48 . oggs 
-=2mS6. 133s 
-=3m4 . 13Ss 
-=3m12 . 13Ss 
-=3m20 . Isgs 
-=3m28 . 160s 
-=3m36. 160s 
-=3m44 .22gs 
-17m2g. 
-eta 
-—17m24. 
-—17m17 . 
-—17m10. 
-e Ca=16mS 7 
-—16m4g . 
-—16m42 . 
-e Ca=16m36 
-e Ca=16m28 
-e Ca=16m20 " width="829" height="260"></p>
+<figure class="post__image"><img loading="lazy"  src="https://jnnn.gs/media/posts/7/GethPrune.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/7/responsive/GethPrune-xs.png 300w ,https://jnnn.gs/media/posts/7/responsive/GethPrune-sm.png 480w ,https://jnnn.gs/media/posts/7/responsive/GethPrune-md.png 768w ,https://jnnn.gs/media/posts/7/responsive/GethPrune-lg.png 1024w ,https://jnnn.gs/media/posts/7/responsive/GethPrune-xl.png 1360w ,https://jnnn.gs/media/posts/7/responsive/GethPrune-2xl.png 1600w"  alt="" width="1333" height="418"></figure>
 <p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </p>
-<p><cite style="margin: 0in; font-family: Calibri; font-size: 9.0pt; color: #595959;"> </cite><span style="font-style: italic;">Once pruning is finished, </span></p>
+<p><cite style="margin: 0in; font-family: Calibri; font-size: 9.0pt; color: #595959;"> </cite><span style="font-style: italic;">Once pruning and dB compacting has finished, </span></p>
 <ol style="margin-left: .375in; direction: ltr; unicode-bidi: embed; margin-top: 0in; margin-bottom: 0in; font-family: Calibri; font-size: 11.0pt; font-weight: normal; font-style: normal;" type="1">
 <li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;" value="1"><span style="font-family: Calibri; font-size: 11.0pt; font-weight: normal; font-style: normal;">Stop Geth</span></li>
 <li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><span style="font-family: Calibri; font-size: 11.0pt;">Change Service ExecStart back to original config (comment out Prune line and uncomment original one)</span></li>
