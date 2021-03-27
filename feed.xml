@@ -3,7 +3,7 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-03-27T11:42:02+00:00</updated>
+    <updated>2021-03-27T11:47:17+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://jnnn.gs/eth2-node-reduce-disk-space-usage.html"/>
         <id>https://jnnn.gs/eth2-node-reduce-disk-space-usage.html</id>
 
-        <updated>2021-03-27T11:42:02+00:00</updated>
+        <updated>2021-03-27T11:47:17+00:00</updated>
             <summary>
                 <![CDATA[
                     So, I have a ETH2 validator node which uses a Hetzner AX41 dedicated server and has been running since genesis. The set-up includes a GETH ETH1 node, beacon chain and the ETH2 Validator (Prysm) and is slowly using the allocated 1TB NVMe disk space (2&hellip;
@@ -25,14 +25,14 @@
             </summary>
         <content type="html">
             <![CDATA[
-                <p>So, I have a ETH2 validator node which uses a Hetzner AX41 dedicated server and has been running since genesis. The set-up includes a GETH ETH1 node, beacon chain and the ETH2 Validator (Prysm) and is slowly using the allocated 1TB NVMe disk space (2 x 512GB using RAID 0). I reached out to the Prysm Discord channel to seek advice and what is best to do. A very friendly mod replied and I thought it useful to share in ase anyone else has the same challenge.</p>
+                <p>So, I have a ETH2 validator node which uses a Hetzner AX41 dedicated server and has been running since genesis. The set-up includes a GETH ETH1 node, beacon chain and the ETH2 Validator (Prysm) and is slowly using the allocated 1TB NVMe disk space (2 x 512GB using RAID 0). I reached out to the Prysm Discord channel to seek advice and what is best to do. A very friendly chap replied and I thought it useful to share in case anyone else has the same challenge.</p>
 <p>I'm planning to go with option 1, as I already have infura failover configured. Another option is to add 2 x more NVMe disks from Hetzner and then add them to the OS. This would mean 20 minutes downtime, so an option for future need.</p>
-<p> </p>
 <div id="chat-messages-825015216634593311" class="message-2qnXI6 cozyMessage-3V1Y8y wrapper-2a6GCs cozy-3raOZG zalgo-jN1Ica" tabindex="-1" role="listitem" data-list-item-id="chat-messages___chat-messages-825015216634593311">
 <div class="contents-2mQqc9" role="document">
-<div class="markup-2BOw-j messageContent-2qWWxC"><span style="color: #2dc26b;">1) Configure a failover eth1 - infura free or alchemy free - then offline snapshot prune geth. This requires 50 GiB free. If you have 25 GiB free, we have reports of it failing; more than 25 and less than 50, I guess you will be our guinea pig! Stop geth, and, as the user that geth runs at in production, do a snapshot prune. If geth runs in systemd, it might look like this: <code class="inline">tmux</code> so the prune doesn't get killed early, and then <code class="inline">sudo systemctl stop geth</code> and then <code class="inline">sudo -u GETHUSER geth --datadir /my/data/dir snapshot prune-state</code>. That will take about 4 hours, and then Geth will be back down to around 350 GiB used. The data dir and user will be recorded in <code class="inline">/etc/system/systemd/geth.service</code>, again assuming systemd and <code class="inline">geth</code> as the service name. If you are using eth2-docker, it's even easier; and I assume similar for stefa2k's docker tools. For eth2-docker: <code class="inline">docker-compose stop eth1 &amp;&amp; docker-compose rm eth1</code>, followed by <code class="inline">docker-compose run -d eth1 snapshot prune-state</code>. You can use <code class="inline">docker-compose logs -f eth1</code> to watch it, and when it's done, <code class="inline">docker-compose up -d eth1</code>. </span></div>
-<div> </div>
-<div class="markup-2BOw-j messageContent-2qWWxC"><span style="color: #2dc26b;">2) Stop using geth and rely on infura free with alchemy free failover, or vice versa. This works remarkably well before the consensus upgrade. After the consensus upgrade, running your own geth as an "application client" may be very desirable, but that's at least 9-12 months out.</span></div>
+<ol>
+<li class="markup-2BOw-j messageContent-2qWWxC"><span style="color: #2dc26b;">Configure a failover eth1 - infura free or alchemy free - then offline snapshot prune geth. This requires 50 GiB free. If you have 25 GiB free, we have reports of it failing; more than 25 and less than 50, I guess you will be our guinea pig! Stop geth, and, as the user that geth runs at in production, do a snapshot prune. If geth runs in systemd, it might look like this: <code class="inline">tmux</code> so the prune doesn't get killed early, and then <code class="inline">sudo systemctl stop geth</code> and then <code class="inline">sudo -u GETHUSER geth --datadir /my/data/dir snapshot prune-state</code>. That will take about 4 hours, and then Geth will be back down to around 350 GiB used. The data dir and user will be recorded in <code class="inline">/etc/system/systemd/geth.service</code>, again assuming systemd and <code class="inline">geth</code> as the service name. If you are using eth2-docker, it's even easier; and I assume similar for stefa2k's docker tools. For eth2-docker: <code class="inline">docker-compose stop eth1 &amp;&amp; docker-compose rm eth1</code>, followed by <code class="inline">docker-compose run -d eth1 snapshot prune-state</code>. You can use <code class="inline">docker-compose logs -f eth1</code> to watch it, and when it's done, <code class="inline">docker-compose up -d eth1</code>. </span></li>
+<li class="markup-2BOw-j messageContent-2qWWxC"><span style="color: #2dc26b;">Stop using geth and rely on infura free with alchemy free failover, or vice versa. This works remarkably well before the consensus upgrade. After the consensus upgrade, running your own geth as an "application client" may be very desirable, but that's at least 9-12 months out.</span></li>
+</ol>
 </div>
 <div class="buttonContainer-DHceWr">
 <div class="buttons-cl5qTG container-3npvBV" aria-label="Message Actions">
