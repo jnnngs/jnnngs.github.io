@@ -3,21 +3,21 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-03-26T16:45:13+00:00</updated>
+    <updated>2021-03-27T11:26:54+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
     <id>https://jnnn.gs</id>
 
     <entry>
-        <title>ETH2 Node Reduce Disk Space Usage</title>
+        <title>Reduce GETH ETH Node Disk Space Usage</title>
         <author>
             <name>Jnnngs</name>
         </author>
         <link href="https://jnnn.gs/eth2-node-reduce-disk-space-usage.html"/>
         <id>https://jnnn.gs/eth2-node-reduce-disk-space-usage.html</id>
 
-        <updated>2021-03-26T15:02:35+00:00</updated>
+        <updated>2021-03-27T11:26:54+00:00</updated>
             <summary>
                 <![CDATA[
                     So, I have a ETH2 validator node which uses a Hetzner AX41 dedicated server and has been running since genesis. The set-up includes a GETH ETH1 node, beacon chain and the ETH2 Validator (Prysm) and is slowly using the allocated 1TB NVMe disk space (2&hellip;
@@ -39,6 +39,234 @@
 <div class="wrapper-2aW0bm">
 <div class="button-1ZiXG9" tabindex="0" role="button" aria-label="Add Reaction" aria-controls="popout_2378" aria-expanded="false"> </div>
 <div class="button-1ZiXG9" tabindex="0" role="button" aria-label="More" aria-controls="popout_2379" aria-expanded="false"><span style="color: #2dc26b; font-family: var(--font-base); font-size: inherit; font-weight: var(--font-weight-normal);">So choose your adventure: 1) or 2)</span></div>
+<div tabindex="0" role="button" aria-label="More" aria-controls="popout_2379" aria-expanded="false"> </div>
+<div tabindex="0" role="button" aria-label="More" aria-controls="popout_2379" aria-expanded="false"><strong><a href="#INTERNAL_LINK#/post/null">UPDATE</a></strong>:</div>
+<div tabindex="0" role="button" aria-label="More" aria-controls="popout_2379" aria-expanded="false">I came across a Redit post that used method 1 above although via the Geth Service method. This is the approach I followed and it was very simple to implement. Notes below...</div>
+<div tabindex="0" role="button" aria-label="More" aria-controls="popout_2379" aria-expanded="false"> </div>
+<div tabindex="0" role="button" aria-label="More" aria-controls="popout_2379" aria-expanded="false">
+<h1 style="margin: 0in; font-family: Calibri; font-size: 16.0pt; color: #1e4e79;">Simple way to prune GETH diskspace</h1>
+<h3 style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check location of working directory</h3>
+<p><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">cat /etc/systemd/system/geth.service</code></p>
+<h3 style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"> </h3>
+<h3 style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Get current size of GETH data location</h3>
+<p><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">du -sh &lt;WorkingDirectory&gt;</code></p>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </p>
+<h3 style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#STOP Geth</h3>
+<p><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
+geth stop</code></p>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </p>
+<h3 style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Change Service to Prune</h3>
+<p><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">vi /etc/systemd/system/geth.service</code></p>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </p>
+<h4 style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><span style="font-style: italic;">[Comment out existing ExecStart using a #]</span></h4>
+<p><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;"><strong><span style="color: #fa0000;">#</span></strong>ExecStart=/usr/bin/geth blah blah blah</code></p>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </p>
+<h4 style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><span style="font-style: italic;">[Add new ExecStart to prune]</span></h4>
+<p><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">ExecStart=/usr/bin/geth
+snapshot prune-state</code></p>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </p>
+<h3 style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Reload Service config</h3>
+<p><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo
+systemctl daemon-reload</code></p>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </p>
+<h3 style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Start Geth Pruning</h3>
+<p><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">Sudo service
+geth start</code></p>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </p>
+<h3 style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check Geth service status</h3>
+<p><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">Sudo service
+geth status</code></p>
+<p><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;"> </code></p>
+<h3 style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check Geth service logs for pruning activity</h3>
+<p><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo
+journalctl -fu geth</code></p>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </p>
+<blockquote style="margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #595959;"><span style="font-style: italic;">Logs should look something like this…</span></blockquote>
+<p style="margin: 0in;"><img loading="lazy" src="file:///C:/Users/jnnngs/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png" data-is-external-image="true"  alt="Machine generated alternative text:
+797s 
+Mar 27 
+6881 
+681s 
+Mar 27 
+[03-27 714] 
+-mss 
+Mar 27 
+714] 
+471s 
+Mar 27 
+[03-27 714] 
+767s 
+Mar 27 
+7481 
+e Ca=17 ms 
+S2s 
+Mar 27 
+g64s 
+Mar 27 
+7501 
+70ss 
+Mar 27 
+:44.774] 
+531s 
+Mar 27 
+[03-27 774] 
+liss 
+Mar 27 
+467s 
+Mar 27 
+723s 
+12. 
+. 02 
+12:02 : 52 
+44 
+gech[86g221] • 
+gech[86g221] • 
+gech[86g221] • 
+gech[86g221] • 
+gech[86g221] • 
+gech[86g221] • 
+gech[86g221] • 
+gech[86g221] • 
+gech[86g221] • 
+gech[86g221] • 
+gech[86g221] • 
+INFO 
+INFO 
+INFO 
+INFO 
+INFO 
+INFO 
+INFO 
+INFO 
+INFO 
+INFO 
+INFO 
+[03-27 | 12 
+: 02 
+runzng 
+Pruning 
+Pruning 
+Pruning 
+Pruning 
+Pruning 
+Pruning 
+Pruning 
+Pruning 
+Pruning 
+Pruning 
+state 
+st ace 
+state 
+state 
+state 
+state 
+state 
+state 
+state 
+state 
+state 
+data 
+dac a 
+dac a 
+dac a 
+dac a 
+dac a 
+dac a 
+dac a 
+dac a 
+dac a 
+dac a 
+node s — 
+—57183086 
+node s — 
+—60211201 
+node s — 
+—63337230 
+node s — 
+—66426sog 
+node s — 
+—69427201 
+node s — 
+—72568030 
+node s — 
+—75739291 
+node s — 
+—78848001 
+node s — 
+—81894285 
+node s — 
+—85016212 
+node s — 
+—88166401 
+—IS . 83GiB 
+s 1 ze— 
+—16. 67GiB 
+s 1 ze— 
+—17 . S3GiB 
+s 1 ze— 
+—18 . 39GiB 
+s 1 ze— 
+—lg .22GiB 
+s 1 ze— 
+—20 . ogGiB 
+s 1 ze— 
+—20 . g7GiB 
+s 1 ze— 
+—21 . 83GiB 
+s 1 ze— 
+—22 . 67GiB 
+s 1 ze— 
+—23 . S3GiB 
+s 1 ze— 
+—24 . 41GiB 
+s 1 ze— 
+elapsed 
+elapsed 
+elapsed 
+elapsed 
+elapsed 
+elapsed 
+elapsed 
+elapsed 
+elapsed 
+elapsed 
+elapsed 
+=2m24 . 073s 
+=2m32 . oggs 
+=2m40 . oggs 
+=2m48 . oggs 
+=2mS6. 133s 
+=3m4 . 13Ss 
+=3m12 . 13Ss 
+=3m20 . Isgs 
+=3m28 . 160s 
+=3m36. 160s 
+=3m44 .22gs 
+17m2g. 
+eta 
+—17m24. 
+—17m17 . 
+—17m10. 
+e Ca=16mS 7 
+—16m4g . 
+—16m42 . 
+e Ca=16m36 
+e Ca=16m28 
+e Ca=16m20 " width="829" height="260"></p>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </p>
+<p><cite style="margin: 0in; font-family: Calibri; font-size: 9.0pt; color: #595959;"> </cite><span style="font-style: italic;">Once pruning is finished, </span></p>
+<ol style="margin-left: .375in; direction: ltr; unicode-bidi: embed; margin-top: 0in; margin-bottom: 0in; font-family: Calibri; font-size: 11.0pt; font-weight: normal; font-style: normal;" type="1">
+<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;" value="1"><span style="font-family: Calibri; font-size: 11.0pt; font-weight: normal; font-style: normal;">Stop Geth</span></li>
+<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><span style="font-family: Calibri; font-size: 11.0pt;">Change Service ExecStart back to original config (comment out Prune line and uncomment original one)</span></li>
+<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><span style="font-family: Calibri; font-size: 11.0pt;">Reload Service config</span></li>
+<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><span style="font-family: Calibri; font-size: 11.0pt;">Start Geth</span></li>
+<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><span style="font-family: Calibri; font-size: 11.0pt;">Check Service status</span></li>
+<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><span style="font-family: Calibri; font-size: 11.0pt;">Check Geth logs</span></li>
+<li>Check Geth working directory size again</li>
+</ol>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </p>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;">Boom!</p>
+</div>
 </div>
 </div>
 </div>
