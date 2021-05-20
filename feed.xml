@@ -3,7 +3,7 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-05-20T16:35:35+01:00</updated>
+    <updated>2021-05-20T16:39:46+01:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
@@ -16,8 +16,9 @@
         </author>
         <link href="https://jnnn.gs/bombay-aloo.html"/>
         <id>https://jnnn.gs/bombay-aloo.html</id>
+            <category term="Indian food"/>
 
-        <updated>2021-05-20T16:35:35+01:00</updated>
+        <updated>2021-05-20T16:38:21+01:00</updated>
             <summary>
                 <![CDATA[
                      Bombay Aloo Open and start drinking 1 India beer Boil the baby potato's for 15 minutes (soft but not fully cooked) While they are boiling, make the sauce... Heat the oil (medium heat) in a cooking pot and add the punch phoron (or cumin&hellip;
@@ -73,8 +74,9 @@
         </author>
         <link href="https://jnnn.gs/samosa-chaat.html"/>
         <id>https://jnnn.gs/samosa-chaat.html</id>
+            <category term="Indian food"/>
 
-        <updated>2021-05-17T08:38:22+01:00</updated>
+        <updated>2021-05-20T16:39:46+01:00</updated>
             <summary>
                 <![CDATA[
                      Sauce (Chaat) Open and start drinking 1 India beer Peel and finely chop 1 red onion Open and drain one can of chickpeas Heat 2 1/2 tbs of oil in a cooking pot Add the red onion and cook until golden Add 1 tbs&hellip;
@@ -173,8 +175,10 @@ SSH Remote Host : 192.168.0.11 </pre>
         </author>
         <link href="https://jnnn.gs/eth2-node-reduce-disk-space-usage.html"/>
         <id>https://jnnn.gs/eth2-node-reduce-disk-space-usage.html</id>
+            <category term="ETH2"/>
+            <category term="DevOps"/>
 
-        <updated>2021-03-27T13:04:04+00:00</updated>
+        <updated>2021-05-20T16:38:45+01:00</updated>
             <summary>
                 <![CDATA[
                     So, I have a ETH2 validator node which uses a Hetzner AX41 dedicated server and has been running since genesis. The set-up includes a GETH ETH1 node, beacon chain and the ETH2 Validator (Prysm) and is slowly using the allocated 1TB NVMe disk space (2&hellip;
@@ -242,8 +246,10 @@ journalctl -fu geth</code></address><address style="margin: 0in; font-family: Ca
         </author>
         <link href="https://jnnn.gs/when-to-use-vnet-peering-vs-vpn-gateway-on-azure.html"/>
         <id>https://jnnn.gs/when-to-use-vnet-peering-vs-vpn-gateway-on-azure.html</id>
+            <category term="DevOps"/>
+            <category term="Azure"/>
 
-        <updated>2021-03-26T16:45:13+00:00</updated>
+        <updated>2021-05-20T16:38:57+01:00</updated>
             <summary>
                 <![CDATA[
                     I was recently playing about with the Hub and Spoke model within Azure and came across two methods to provide connectivity between the two. The idea behind the design pattern is that the Hub is the main entry point with common services for the Spoke(s)&hellip;
@@ -264,8 +270,10 @@ journalctl -fu geth</code></address><address style="margin: 0in; font-family: Ca
         </author>
         <link href="https://jnnn.gs/azure-private-endpoints-vs-service-endpoints.html"/>
         <id>https://jnnn.gs/azure-private-endpoints-vs-service-endpoints.html</id>
+            <category term="DevOps"/>
+            <category term="Azure"/>
 
-        <updated>2021-01-22T08:56:21+00:00</updated>
+        <updated>2021-05-20T16:39:05+01:00</updated>
             <summary>
                 <![CDATA[
                     Following a deep dive into the world of Azure endpoints, I found it interesting that there is a misconception of the primary uses (and any secondary uses) of Azure Private Endpoints. It seems that they are being used when a Service Endpoint is perfectly suitable&hellip;
@@ -338,8 +346,9 @@ journalctl -fu geth</code></address><address style="margin: 0in; font-family: Ca
         </author>
         <link href="https://jnnn.gs/webdav-urls-of-common-cloud-storage-services.html"/>
         <id>https://jnnn.gs/webdav-urls-of-common-cloud-storage-services.html</id>
+            <category term="DevOps"/>
 
-        <updated>2021-01-09T16:55:00+00:00</updated>
+        <updated>2021-05-20T16:39:13+01:00</updated>
             <summary>
                 <![CDATA[
                     This is a list of the most common WebDAV URLs you need to enter into the iOS and Android app if you want to connect to your cloud storage service. * pCloud disables WebDAV access when 2FA is enabled.
@@ -469,8 +478,9 @@ journalctl -fu geth</code></address><address style="margin: 0in; font-family: Ca
         </author>
         <link href="https://jnnn.gs/how-to-configure-multiple-domains-with-nginx.html"/>
         <id>https://jnnn.gs/how-to-configure-multiple-domains-with-nginx.html</id>
+            <category term="DevOps"/>
 
-        <updated>2021-01-08T17:30:34+00:00</updated>
+        <updated>2021-05-20T16:39:23+01:00</updated>
             <summary>
                 <![CDATA[
                     Configure First Domain The default configuration file for Nginx is /etc/nginx/nginx.conf, and we’re free to add our domains to this configuration. However, it is strongly recommended not do that. The single, biggest reason not to combine all domains in one configuration is that it will&hellip;
@@ -518,8 +528,9 @@ journalctl -fu geth</code></address><address style="margin: 0in; font-family: Ca
         </author>
         <link href="https://jnnn.gs/jenkins-deployment-ssh-keygen.html"/>
         <id>https://jnnn.gs/jenkins-deployment-ssh-keygen.html</id>
+            <category term="DevOps"/>
 
-        <updated>2021-01-08T09:01:00+00:00</updated>
+        <updated>2021-05-20T16:39:33+01:00</updated>
             <summary>
                 <![CDATA[
                     So, as part of my home lab and the automatic deployment of this blog, Jenkins needs to SSH onto the deployment Raspberry Pi to execute a bash script. Jenkins has been installed using its own username and as it is a service account, the method&hellip;
