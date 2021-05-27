@@ -3,12 +3,71 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-05-20T16:39:46+01:00</updated>
+    <updated>2021-05-27T11:26:00+01:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
     <id>https://jnnn.gs</id>
 
+    <entry>
+        <title>Keema</title>
+        <author>
+            <name>Jnnngs</name>
+        </author>
+        <link href="https://jnnn.gs/keema.html"/>
+        <id>https://jnnn.gs/keema.html</id>
+            <category term="Indian food"/>
+
+        <updated>2021-05-27T11:26:00+01:00</updated>
+            <summary>
+                <![CDATA[
+                     Keema Open and start drinking 1 India beer Put a large saucepan onto a medium high heat and add half a cup of vegetable oil, let it get hot then add your cinnamon stick, bay leaves and cardamom pods. Follow that up with your&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2><figure class="post__image post__image--center"><img loading="lazy"  src="https://jnnn.gs/media/posts/11/keema.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/11/responsive/keema-xs.png 300w ,https://jnnn.gs/media/posts/11/responsive/keema-sm.png 480w ,https://jnnn.gs/media/posts/11/responsive/keema-md.png 768w ,https://jnnn.gs/media/posts/11/responsive/keema-lg.png 1024w ,https://jnnn.gs/media/posts/11/responsive/keema-xl.png 1360w ,https://jnnn.gs/media/posts/11/responsive/keema-2xl.png 1600w"  alt="Keema" width="1266" height="548"></figure></h2>
+<h2>Keema</h2>
+<ol>
+<li>Open and start drinking 1 India beer</li>
+<li>Put a large saucepan onto a medium high heat and add half a cup of vegetable oil, let it get hot then add your cinnamon stick, bay leaves and cardamom pods. Follow that up with your diced onion and green chillies, stir for a few minutes as the dish heats back up. Remember it will cool down when you add room temperature ingredients</li>
+<li>After 5 or so minutes when the onion becomes slightly golden and starts to lose its rawness, but isn't cooked yet; add your ginger and garlic along with 1 and 1/4 teaspoons of salt. This will help to remove the moisture from the onions and caramelise them</li>
+<li>Stir to combine and cook for a couple of minutes to remove the rawness of the garlic and ginger</li>
+<li>Add your 500g of lamb mince. Cook for 5-10 minutes until all the meat is browned properly and the lamb lets go of its juices, there should be a thin watery sauce at the bottom of the pan which is perfect for....</li>
+<li>Adding our spices, add your spice mix such as the one provided in the ingredients list above, stir into the dish until a nice colour develops</li>
+<li>Stir and cook for 5 or so minutes so the spices lose their powdery rawness and give the meat and sauce their flavour</li>
+<li>Add the tin of chopped tomato's , this gives a bit of a base for our sauce, this isn't a saucy dish like the way some Keema's are cooked but there will be a little from the tomato</li>
+<li>Cook for another 5 minutes or until the tomato's lose their moisture and produce some extra moisture to the sauce, this is perfect now for adding our cup of peas into the dish. After the peas add enough water so that it covers about 80% of the ingredients. Cook for 12-15 minutes or until there is no more water left in the dish</li>
+<li>Add enough water to cover and take your time reducing the dish so that ingredients reabsorb as much of the juice in the pan as possible, until its almost dry</li>
+<li>Serve with a garnish of ginger and fresh coriander, serve over some boiled rice or eat with an nan</li>
+</ol>
+<h3>Ingredients List</h3>
+<ol>
+<li>2 bay leaves</li>
+<li>2 cardamom pods</li>
+<li>1.5 inches of a cinnamon stick</li>
+<li>1 medium onion - chopped</li>
+<li>1/2 a cup of vegetable oil</li>
+<li>3 green chillies</li>
+<li>1.5 inch cubed ginger - finely sliced</li>
+<li>5-6 cloves of garlic - chopped</li>
+<li>1+1/4 tsp salt</li>
+<li>500g lamb mince</li>
+<li>1 tin of chopped tomatoes</li>
+<li>1 cup of peas</li>
+<li>Spice mix
+<ol style="list-style-type: lower-alpha;">
+<li>1 tsp chilli powder</li>
+<li>1 tsp garam masala</li>
+<li>1/2 tsp cumin</li>
+<li>1 tsp curry powder</li>
+<li>2 tsp coriander powder</li>
+</ol>
+</li>
+</ol>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Bombay Aloo</title>
         <author>
@@ -18,7 +77,7 @@
         <id>https://jnnn.gs/bombay-aloo.html</id>
             <category term="Indian food"/>
 
-        <updated>2021-05-20T16:38:21+01:00</updated>
+        <updated>2021-05-27T11:19:56+01:00</updated>
             <summary>
                 <![CDATA[
                      Bombay Aloo Open and start drinking 1 India beer Boil the baby potato's for 15 minutes (soft but not fully cooked) While they are boiling, make the sauce... Heat the oil (medium heat) in a cooking pot and add the punch phoron (or cumin&hellip;
@@ -540,28 +599,6 @@ journalctl -fu geth</code></address><address style="margin: 0in; font-family: Ca
             <![CDATA[
                 <p>So, as part of my home lab and the automatic deployment of this blog, Jenkins needs to SSH onto the deployment Raspberry Pi to execute a bash script. Jenkins has been installed using its own username and as it is a service account, the method to generate and copy the ssh-gen keys is different to the standard way for normal linux/ubuntu user accounts.</p>
 <p><code>#Jekins is a service account, so it needs its ssh keys for remote execution to be created differently...</code><br><br><code>#login to jenkins server and switch to jenkins service user account</code><br><code>sudo su -s /bin/bash jenkins</code><br><br><code>#create keys. default location will be /var/lib/jenkins/.ssh/id_rsa</code><br><code>ssh-keygen</code><br><br><code>#copy keys over to destination server</code><br><code>cat /var/lib/jenkins/.ssh/id_rsa.pub | ssh <a href="mailto:ubuntu@DEPLOYMENT">ubuntu@<span style="color: #2dc26b;">DEPLOYMENT</span></a><span style="color: #2dc26b;">_IP_ADDRESS</span> "mkdir -p ~/.ssh &amp;&amp; touch ~/.ssh/authorized_keys &amp;&amp; chmod -R go= ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys"</code><br><br></p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>Hello World</title>
-        <author>
-            <name>Jnnngs</name>
-        </author>
-        <link href="https://jnnn.gs/hello-world.html"/>
-        <id>https://jnnn.gs/hello-world.html</id>
-
-        <updated>2021-01-14T09:10:29+00:00</updated>
-            <summary>
-                <![CDATA[
-                    First post using Publii CMS which is a static HTML creation tool. I intend to use this tool for content with Jenkins to auto-deploy to jnnn.gs. Publii CMS --&gt; HTML on GitHub --&gt; Jenkins on Rasp --&gt; SAST --&gt; Deploy on Rasp --&gt; DAST 
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <p>First post using Publii CMS which is a static HTML creation tool. I intend to use this tool for content with Jenkins to auto-deploy to jnnn.gs.</p>
-<p><code>Publii CMS --&gt; HTML on GitHub --&gt; Jenkins on Rasp --&gt; SAST --&gt; Deploy on Rasp --&gt; DAST </code></p>
-<p> </p>
             ]]>
         </content>
     </entry>

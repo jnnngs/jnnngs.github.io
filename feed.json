@@ -10,6 +10,21 @@
     },
     "items": [
         {
+            "id": "https://jnnn.gs/keema.html",
+            "url": "https://jnnn.gs/keema.html",
+            "title": "Keema",
+            "summary": " Keema Open and start drinking 1 India beer Put a large saucepan onto a medium high heat and add half a cup of vegetable oil, let it get hot then add your cinnamon stick, bay leaves and cardamom pods. Follow that up with your&hellip;",
+            "content_html": "<h2><figure class=\"post__image post__image--center\"><img loading=\"lazy\"  src=\"https://jnnn.gs/media/posts/11/keema.png\" sizes=\"(max-width: 48em) 100vw, 768px\" srcset=\"https://jnnn.gs/media/posts/11/responsive/keema-xs.png 300w ,https://jnnn.gs/media/posts/11/responsive/keema-sm.png 480w ,https://jnnn.gs/media/posts/11/responsive/keema-md.png 768w ,https://jnnn.gs/media/posts/11/responsive/keema-lg.png 1024w ,https://jnnn.gs/media/posts/11/responsive/keema-xl.png 1360w ,https://jnnn.gs/media/posts/11/responsive/keema-2xl.png 1600w\"  alt=\"Keema\" width=\"1266\" height=\"548\"></figure></h2>\n<h2>Keema</h2>\n<ol>\n<li>Open and start drinking 1 India beer</li>\n<li>Put a large saucepan onto a medium high heat and add half a cup of vegetable oil, let it get hot then add your cinnamon stick, bay leaves and cardamom pods. Follow that up with your diced onion and green chillies, stir for a few minutes as the dish heats back up. Remember it will cool down when you add room temperature ingredients</li>\n<li>After 5 or so minutes when the onion becomes slightly golden and starts to lose its rawness, but isn't cooked yet; add your ginger and garlic along with 1 and 1/4 teaspoons of salt. This will help to remove the moisture from the onions and caramelise them</li>\n<li>Stir to combine and cook for a couple of minutes to remove the rawness of the garlic and ginger</li>\n<li>Add your 500g of lamb mince. Cook for 5-10 minutes until all the meat is browned properly and the lamb lets go of its juices, there should be a thin watery sauce at the bottom of the pan which is perfect for....</li>\n<li>Adding our spices, add your spice mix such as the one provided in the ingredients list above, stir into the dish until a nice colour develops</li>\n<li>Stir and cook for 5 or so minutes so the spices lose their powdery rawness and give the meat and sauce their flavour</li>\n<li>Add the tin of chopped tomato's , this gives a bit of a base for our sauce, this isn't a saucy dish like the way some Keema's are cooked but there will be a little from the tomato</li>\n<li>Cook for another 5 minutes or until the tomato's lose their moisture and produce some extra moisture to the sauce, this is perfect now for adding our cup of peas into the dish. After the peas add enough water so that it covers about 80% of the ingredients. Cook for 12-15 minutes or until there is no more water left in the dish</li>\n<li>Add enough water to cover and take your time reducing the dish so that ingredients reabsorb as much of the juice in the pan as possible, until its almost dry</li>\n<li>Serve with a garnish of ginger and fresh coriander, serve over some boiled rice or eat with an nan</li>\n</ol>\n<h3>Ingredients List</h3>\n<ol>\n<li>2 bay leaves</li>\n<li>2 cardamom pods</li>\n<li>1.5 inches of a cinnamon stick</li>\n<li>1 medium onion - chopped</li>\n<li>1/2 a cup of vegetable oil</li>\n<li>3 green chillies</li>\n<li>1.5 inch cubed ginger - finely sliced</li>\n<li>5-6 cloves of garlic - chopped</li>\n<li>1+1/4 tsp salt</li>\n<li>500g lamb mince</li>\n<li>1 tin of chopped tomatoes</li>\n<li>1 cup of peas</li>\n<li>Spice mix\n<ol style=\"list-style-type: lower-alpha;\">\n<li>1 tsp chilli powder</li>\n<li>1 tsp garam masala</li>\n<li>1/2 tsp cumin</li>\n<li>1 tsp curry powder</li>\n<li>2 tsp coriander powder</li>\n</ol>\n</li>\n</ol>",
+            "author": {
+                "name": "Jnnngs"
+            },
+            "tags": [
+                   "Indian food"
+            ],
+            "date_published": "2021-05-27T11:25:38+01:00",
+            "date_modified": "2021-05-27T11:26:00+01:00"
+        },
+        {
             "id": "https://jnnn.gs/bombay-aloo.html",
             "url": "https://jnnn.gs/bombay-aloo.html",
             "title": "Bombay Aloo",
@@ -22,7 +37,7 @@
                    "Indian food"
             ],
             "date_published": "2021-05-20T16:23:02+01:00",
-            "date_modified": "2021-05-20T16:38:21+01:00"
+            "date_modified": "2021-05-27T11:19:56+01:00"
         },
         {
             "id": "https://jnnn.gs/samosa-chaat.html",
@@ -145,20 +160,6 @@
             ],
             "date_published": "2021-01-08T08:55:36+00:00",
             "date_modified": "2021-05-20T16:39:33+01:00"
-        },
-        {
-            "id": "https://jnnn.gs/hello-world.html",
-            "url": "https://jnnn.gs/hello-world.html",
-            "title": "Hello World",
-            "summary": "First post using Publii CMS which is a static HTML creation tool. I intend to use this tool for content with Jenkins to auto-deploy to jnnn.gs. Publii CMS --&gt; HTML on GitHub --&gt; Jenkins on Rasp --&gt; SAST --&gt; Deploy on Rasp --&gt; DAST ",
-            "content_html": "<p>First post using Publii CMS which is a static HTML creation tool. I intend to use this tool for content with Jenkins to auto-deploy to jnnn.gs.</p>\n<p><code>Publii CMS --&gt; HTML on GitHub --&gt; Jenkins on Rasp --&gt; SAST --&gt; Deploy on Rasp --&gt; DAST </code></p>\n<p> </p>",
-            "author": {
-                "name": "Jnnngs"
-            },
-            "tags": [
-            ],
-            "date_published": "2021-01-02T13:03:19+00:00",
-            "date_modified": "2021-01-14T09:10:29+00:00"
         }
     ]
 }
