@@ -3,12 +3,67 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-05-27T11:26:00+01:00</updated>
+    <updated>2021-06-04T15:58:59+01:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
     <id>https://jnnn.gs</id>
 
+    <entry>
+        <title>Chicken Bhuna</title>
+        <author>
+            <name>Jnnngs</name>
+        </author>
+        <link href="https://jnnn.gs/chicken-bhuna.html"/>
+        <id>https://jnnn.gs/chicken-bhuna.html</id>
+
+        <updated>2021-06-04T15:58:59+01:00</updated>
+            <summary>
+                <![CDATA[
+                     Method First add 2 tablespoons of vegetable oil to a large pan, put it on a medium-high heat and add the cumin seeds, onion seeds, bay leaves, cardamom pod and cinnamon. When the seeds begin to crackle quickly add your diced onion and stir&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2><figure class="post__image post__image--center"><img loading="lazy"  src="https://jnnn.gs/media/posts/12/Chicken-Bhuna-2.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/12/responsive/Chicken-Bhuna-2-xs.png 300w ,https://jnnn.gs/media/posts/12/responsive/Chicken-Bhuna-2-sm.png 480w ,https://jnnn.gs/media/posts/12/responsive/Chicken-Bhuna-2-md.png 768w ,https://jnnn.gs/media/posts/12/responsive/Chicken-Bhuna-2-lg.png 1024w ,https://jnnn.gs/media/posts/12/responsive/Chicken-Bhuna-2-xl.png 1360w ,https://jnnn.gs/media/posts/12/responsive/Chicken-Bhuna-2-2xl.png 1600w"  alt="" width="765" height="430"></figure></h2>
+<h2>Method</h2>
+<ol>
+<li>First add 2 tablespoons of vegetable oil to a large pan, put it on a medium-high heat and add the cumin seeds, onion seeds, bay leaves, cardamom pod and cinnamon.</li>
+<li>When the seeds begin to crackle quickly add your diced onion and stir to combine. stir fry for a few minutes before adding your teaspoons of garlic and ginger paste, continue cooking for a further 5 minutes or so or until the onions start to go translucent and brown.</li>
+<li>Add your green peppers and chopped tomato pieces. add in your spice mix as well and give it a good stir. stir fry for 30 seconds or so, just get the spices hot and well mixed before adding in your tomato puree over them. stir to combine and cook for a minute or two.</li>
+<li>Add in your pre-cooked chicken pieces and stir to combine, add a pinch of salt and continue to stir and fry for a minute or so until the chicken has warmed through properly add your gravy and allow it to cook and reduce down till desired consistency!</li>
+</ol>
+<h2><span class="style-scope yt-formatted-string" dir="auto"><strong>Ingredients</strong></span></h2>
+<ul>
+<li><span class="style-scope yt-formatted-string" dir="auto">Serves 1, add extra onion and oil for more servings</span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto">2 tablespoon of vegetable oil</span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto"> big pinch of cumin seeds</span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto"> pinch of onion seeds (nigella)</span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto"> 2 bay leaves </span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto">1 inch cinnamon stick </span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto">1 cardamom pod </span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto">1 medium onion diced </span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto">1 heaped tsp garlic </span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto">1 heaped tsp ginger </span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto">2 green peppers </span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto">1/2 chopped tomato </span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto">2 tablespoons tomato puree</span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto">2 chicken breasts </span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto">Pinch of salt</span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto"> 250ml water or base Gravy</span></li>
+</ul>
+<h2>Spice mix</h2>
+<ul>
+<li>1/2 chilli powder</li>
+<li>1/2 tsp turmeric</li>
+<li>1/2 tsp cumin powder</li>
+<li>1/2 tsp coriander powder</li>
+<li>1/2 tsp garam masala</li>
+<li>1 heaped tsp curry powder</li>
+</ul>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Keema</title>
         <author>
@@ -577,28 +632,6 @@ journalctl -fu geth</code></address><address style="margin: 0in; font-family: Ca
 <p><code>sudo systemctl reload nginx</code></p>
 <p>Verify that Nginx is running.</p>
 <p><code>sudo systemctl status nginx</code></p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>Jenkins Deployment ssh-keygen</title>
-        <author>
-            <name>Jnnngs</name>
-        </author>
-        <link href="https://jnnn.gs/jenkins-deployment-ssh-keygen.html"/>
-        <id>https://jnnn.gs/jenkins-deployment-ssh-keygen.html</id>
-            <category term="DevOps"/>
-
-        <updated>2021-05-20T16:39:33+01:00</updated>
-            <summary>
-                <![CDATA[
-                    So, as part of my home lab and the automatic deployment of this blog, Jenkins needs to SSH onto the deployment Raspberry Pi to execute a bash script. Jenkins has been installed using its own username and as it is a service account, the method&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <p>So, as part of my home lab and the automatic deployment of this blog, Jenkins needs to SSH onto the deployment Raspberry Pi to execute a bash script. Jenkins has been installed using its own username and as it is a service account, the method to generate and copy the ssh-gen keys is different to the standard way for normal linux/ubuntu user accounts.</p>
-<p><code>#Jekins is a service account, so it needs its ssh keys for remote execution to be created differently...</code><br><br><code>#login to jenkins server and switch to jenkins service user account</code><br><code>sudo su -s /bin/bash jenkins</code><br><br><code>#create keys. default location will be /var/lib/jenkins/.ssh/id_rsa</code><br><code>ssh-keygen</code><br><br><code>#copy keys over to destination server</code><br><code>cat /var/lib/jenkins/.ssh/id_rsa.pub | ssh <a href="mailto:ubuntu@DEPLOYMENT">ubuntu@<span style="color: #2dc26b;">DEPLOYMENT</span></a><span style="color: #2dc26b;">_IP_ADDRESS</span> "mkdir -p ~/.ssh &amp;&amp; touch ~/.ssh/authorized_keys &amp;&amp; chmod -R go= ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys"</code><br><br></p>
             ]]>
         </content>
     </entry>
