@@ -3,12 +3,43 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-08-12T08:56:11+01:00</updated>
+    <updated>2021-08-15T14:27:16+01:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
     <id>https://jnnn.gs</id>
 
+    <entry>
+        <title>Chicken marinade</title>
+        <author>
+            <name>Jnnngs</name>
+        </author>
+        <link href="https://jnnn.gs/chicken-marinade.html"/>
+        <id>https://jnnn.gs/chicken-marinade.html</id>
+
+        <updated>2021-08-15T14:27:16+01:00</updated>
+            <summary>
+                <![CDATA[
+                    1 kg chicken 1 tsp salt 1 tsp turmeric power 1 tsp chilli power 2 tsp curry power 2 tsp coriander power 0.5 tsp cumin power 0.5 tsp garam masala power 4 tbs vegetable oil 4 tbs yogurt Good squeeze of lemon juice Mix and&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>1 kg chicken</p>
+<p>1 tsp salt</p>
+<p>1 tsp turmeric power</p>
+<p>1 tsp chilli power</p>
+<p>2 tsp curry power</p>
+<p>2 tsp coriander power</p>
+<p>0.5 tsp cumin power</p>
+<p>0.5 tsp garam masala power</p>
+<p>4 tbs vegetable oil</p>
+<p>4 tbs yogurt</p>
+<p>Good squeeze of lemon juice</p>
+<p>Mix and leave to marinade (covered) in the fridge for at least 1 hour</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>How to fix apt&#x27;s &quot;the following packages have been kept back&quot; issue</title>
         <author>
@@ -49,8 +80,9 @@
         </author>
         <link href="https://jnnn.gs/chicken-bhuna.html"/>
         <id>https://jnnn.gs/chicken-bhuna.html</id>
+            <category term="Indian food"/>
 
-        <updated>2021-07-19T09:49:05+01:00</updated>
+        <updated>2021-08-12T08:58:24+01:00</updated>
             <summary>
                 <![CDATA[
                      Method Open and start drinking 1 India beer First add 2 tablespoons of vegetable oil to a large pan, put it on a medium-high heat and add the cumin seeds, onion seeds, bay leaves, cardamom pod and cinnamon. When the seeds begin to crackle&hellip;
@@ -290,8 +322,9 @@
         </author>
         <link href="https://jnnn.gs/ssh-passwordless-login-using-ssh-keygen-in-5-easy-steps.html"/>
         <id>https://jnnn.gs/ssh-passwordless-login-using-ssh-keygen-in-5-easy-steps.html</id>
+            <category term="DevOps"/>
 
-        <updated>2021-05-15T11:32:49+01:00</updated>
+        <updated>2021-08-12T08:58:31+01:00</updated>
             <summary>
                 <![CDATA[
                     Using Password-less login with SSH keys will increase the trust between two Linux servers for easy file synchronization or transfer. SSH Client : 192.168.0.10 SSH Remote Host : 192.168.0.11 In this example, we will set up SSH password-less automatic login from server 192.168.0.10 as user bob to 192.168.0.11 with user fred. Please note that&hellip;
@@ -485,138 +518,6 @@ journalctl -fu geth</code></address><address style="margin: 0in; font-family: Ca
 <p>1.Public address exists although unusable</p>
 <p>2.Any existing public IP firewall rules will need to be reconfigured</p>
 <p>*Please note that no changes are required to the requesting PaaS component as this continues to use the public endpoint FQDN. Azure returns the private IP rather than the public IP, knowing that a service endpoint is in use.</p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>WebDAV URLs of Common Cloud Storage Services</title>
-        <author>
-            <name>Jnnngs</name>
-        </author>
-        <link href="https://jnnn.gs/webdav-urls-of-common-cloud-storage-services.html"/>
-        <id>https://jnnn.gs/webdav-urls-of-common-cloud-storage-services.html</id>
-            <category term="DevOps"/>
-
-        <updated>2021-05-20T16:39:13+01:00</updated>
-            <summary>
-                <![CDATA[
-                    This is a list of the most common WebDAV URLs you need to enter into the iOS and Android app if you want to connect to your cloud storage service. * pCloud disables WebDAV access when 2FA is enabled.
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <p>This is a list of the most common WebDAV URLs you need to enter into the iOS and Android app if you want to connect to your cloud storage service.</p>
-<table>
-<thead>
-<tr>
-<th>Cloud Storage Service</th>
-<th>URL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1&amp;1 Online-Speicher (DSL)</td>
-<td>https://sd2dav.1und1.de</td>
-</tr>
-<tr>
-<td>1&amp;1 Online-Speicher (Webhosting)</td>
-<td>https://webdav.office.1und1.de</td>
-</tr>
-<tr>
-<td>blaucloud</td>
-<td>https://{username}.blaucloud.de/remote.php/webdav</td>
-</tr>
-<tr>
-<td>Box</td>
-<td>https://dav.box.com/dav</td>
-</tr>
-<tr>
-<td>freenetcloud</td>
-<td>https://webmail.freenet.de/webdav</td>
-</tr>
-<tr>
-<td>GMX MediaCenter</td>
-<td>https://webdav.mc.gmx.net</td>
-</tr>
-<tr>
-<td>HiDrive</td>
-<td>https://webdav.hidrive.strato.com</td>
-</tr>
-<tr>
-<td>IceDrive</td>
-<td>https://webdav.icedrive.io/</td>
-</tr>
-<tr>
-<td>IDrive</td>
-<td>https://dav.idrivesync.com</td>
-</tr>
-<tr>
-<td>kDrive</td>
-<td>https://connect.drive.infomaniak.com</td>
-</tr>
-<tr>
-<td>Koofr</td>
-<td>https://app.koofr.net/dav/Koofr</td>
-</tr>
-<tr>
-<td>MagentaCLOUD</td>
-<td>https://webdav.magentacloud.de</td>
-</tr>
-<tr>
-<td>Mail.Ru</td>
-<td>https://webdav.cloud.mail.ru</td>
-</tr>
-<tr>
-<td>Nextcloud</td>
-<td>https://{host}/{path}/remote.php/dav/files/{username}<br>or<br>https://{host}/{path}/remote.php/webdav</td>
-</tr>
-<tr>
-<td>ownCloud</td>
-<td>https://{host}/{path}/remote.php/webdav</td>
-</tr>
-<tr>
-<td>pCloud* (US)</td>
-<td>https://webdav.pcloud.com</td>
-</tr>
-<tr>
-<td>pCloud* (EU)</td>
-<td>https://ewebdav.pcloud.com</td>
-</tr>
-<tr>
-<td>Seafile (self-hosted)</td>
-<td>https://{host}/{path}/seafdav</td>
-</tr>
-<tr>
-<td>STACK</td>
-<td>https://{username}.stackstorage.com/remote.php/webdav</td>
-</tr>
-<tr>
-<td>Strato HiDrive</td>
-<td>https://webdav.hidrive.strato.com</td>
-</tr>
-<tr>
-<td>Syncwerk (formerly Seafile.de)</td>
-<td>https://app.syncwerk.com/seafdav</td>
-</tr>
-<tr>
-<td>WEB.DE Online-Speicher</td>
-<td>https://webdav.smartdrive.web.de</td>
-</tr>
-<tr>
-<td>wölkli</td>
-<td>https://cloud.woelkli.com/remote.php/webdav</td>
-</tr>
-<tr>
-<td>Yandex.Disk</td>
-<td>https://webdav.yandex.com</td>
-</tr>
-<tr>
-<td>Mailbox.org</td>
-<td>https://dav.mailbox.org/servlet/webdav.infostore/</td>
-</tr>
-</tbody>
-</table>
-<p>* pCloud disables WebDAV access when 2FA is enabled.</p>
             ]]>
         </content>
     </entry>

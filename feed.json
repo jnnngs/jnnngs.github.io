@@ -10,6 +10,20 @@
     },
     "items": [
         {
+            "id": "https://jnnn.gs/chicken-marinade.html",
+            "url": "https://jnnn.gs/chicken-marinade.html",
+            "title": "Chicken marinade",
+            "summary": "1 kg chicken 1 tsp salt 1 tsp turmeric power 1 tsp chilli power 2 tsp curry power 2 tsp coriander power 0.5 tsp cumin power 0.5 tsp garam masala power 4 tbs vegetable oil 4 tbs yogurt Good squeeze of lemon juice Mix and&hellip;",
+            "content_html": "<p>1 kg chicken</p>\n<p>1 tsp salt</p>\n<p>1 tsp turmeric power</p>\n<p>1 tsp chilli power</p>\n<p>2 tsp curry power</p>\n<p>2 tsp coriander power</p>\n<p>0.5 tsp cumin power</p>\n<p>0.5 tsp garam masala power</p>\n<p>4 tbs vegetable oil</p>\n<p>4 tbs yogurt</p>\n<p>Good squeeze of lemon juice</p>\n<p>Mix and leave to marinade (covered) in the fridge for at least 1 hour</p>",
+            "author": {
+                "name": "Jnnngs"
+            },
+            "tags": [
+            ],
+            "date_published": "2021-08-15T14:27:16+01:00",
+            "date_modified": "2021-08-15T14:27:16+01:00"
+        },
+        {
             "id": "https://jnnn.gs/how-to-fix-apts-the-following-packages-have-been-kept-back-issue.html",
             "url": "https://jnnn.gs/how-to-fix-apts-the-following-packages-have-been-kept-back-issue.html",
             "title": "How to fix apt&#x27;s &quot;the following packages have been kept back&quot; issue",
@@ -34,9 +48,10 @@
                 "name": "Jnnngs"
             },
             "tags": [
+                   "Indian food"
             ],
             "date_published": "2021-06-04T15:58:59+01:00",
-            "date_modified": "2021-07-19T09:49:05+01:00"
+            "date_modified": "2021-08-12T08:58:24+01:00"
         },
         {
             "id": "https://jnnn.gs/keema.html",
@@ -93,9 +108,10 @@
                 "name": "Jnnngs"
             },
             "tags": [
+                   "DevOps"
             ],
             "date_published": "2021-05-15T11:32:46+01:00",
-            "date_modified": "2021-05-15T11:32:49+01:00"
+            "date_modified": "2021-08-12T08:58:31+01:00"
         },
         {
             "id": "https://jnnn.gs/eth2-node-reduce-disk-space-usage.html",
@@ -144,21 +160,6 @@
             ],
             "date_published": "2021-01-15T09:19:49+00:00",
             "date_modified": "2021-05-20T16:39:05+01:00"
-        },
-        {
-            "id": "https://jnnn.gs/webdav-urls-of-common-cloud-storage-services.html",
-            "url": "https://jnnn.gs/webdav-urls-of-common-cloud-storage-services.html",
-            "title": "WebDAV URLs of Common Cloud Storage Services",
-            "summary": "This is a list of the most common WebDAV URLs you need to enter into the iOS and Android app if you want to connect to your cloud storage service. * pCloud disables WebDAV access when 2FA is enabled.",
-            "content_html": "<p>This is a list of the most common WebDAV URLs you need to enter into the iOS and Android app if you want to connect to your cloud storage service.</p>\n<table>\n<thead>\n<tr>\n<th>Cloud Storage Service</th>\n<th>URL</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1&amp;1 Online-Speicher (DSL)</td>\n<td>https://sd2dav.1und1.de</td>\n</tr>\n<tr>\n<td>1&amp;1 Online-Speicher (Webhosting)</td>\n<td>https://webdav.office.1und1.de</td>\n</tr>\n<tr>\n<td>blaucloud</td>\n<td>https://{username}.blaucloud.de/remote.php/webdav</td>\n</tr>\n<tr>\n<td>Box</td>\n<td>https://dav.box.com/dav</td>\n</tr>\n<tr>\n<td>freenetcloud</td>\n<td>https://webmail.freenet.de/webdav</td>\n</tr>\n<tr>\n<td>GMX MediaCenter</td>\n<td>https://webdav.mc.gmx.net</td>\n</tr>\n<tr>\n<td>HiDrive</td>\n<td>https://webdav.hidrive.strato.com</td>\n</tr>\n<tr>\n<td>IceDrive</td>\n<td>https://webdav.icedrive.io/</td>\n</tr>\n<tr>\n<td>IDrive</td>\n<td>https://dav.idrivesync.com</td>\n</tr>\n<tr>\n<td>kDrive</td>\n<td>https://connect.drive.infomaniak.com</td>\n</tr>\n<tr>\n<td>Koofr</td>\n<td>https://app.koofr.net/dav/Koofr</td>\n</tr>\n<tr>\n<td>MagentaCLOUD</td>\n<td>https://webdav.magentacloud.de</td>\n</tr>\n<tr>\n<td>Mail.Ru</td>\n<td>https://webdav.cloud.mail.ru</td>\n</tr>\n<tr>\n<td>Nextcloud</td>\n<td>https://{host}/{path}/remote.php/dav/files/{username}<br>or<br>https://{host}/{path}/remote.php/webdav</td>\n</tr>\n<tr>\n<td>ownCloud</td>\n<td>https://{host}/{path}/remote.php/webdav</td>\n</tr>\n<tr>\n<td>pCloud* (US)</td>\n<td>https://webdav.pcloud.com</td>\n</tr>\n<tr>\n<td>pCloud* (EU)</td>\n<td>https://ewebdav.pcloud.com</td>\n</tr>\n<tr>\n<td>Seafile (self-hosted)</td>\n<td>https://{host}/{path}/seafdav</td>\n</tr>\n<tr>\n<td>STACK</td>\n<td>https://{username}.stackstorage.com/remote.php/webdav</td>\n</tr>\n<tr>\n<td>Strato HiDrive</td>\n<td>https://webdav.hidrive.strato.com</td>\n</tr>\n<tr>\n<td>Syncwerk (formerly Seafile.de)</td>\n<td>https://app.syncwerk.com/seafdav</td>\n</tr>\n<tr>\n<td>WEB.DE Online-Speicher</td>\n<td>https://webdav.smartdrive.web.de</td>\n</tr>\n<tr>\n<td>wölkli</td>\n<td>https://cloud.woelkli.com/remote.php/webdav</td>\n</tr>\n<tr>\n<td>Yandex.Disk</td>\n<td>https://webdav.yandex.com</td>\n</tr>\n<tr>\n<td>Mailbox.org</td>\n<td>https://dav.mailbox.org/servlet/webdav.infostore/</td>\n</tr>\n</tbody>\n</table>\n<p>* pCloud disables WebDAV access when 2FA is enabled.</p>",
-            "author": {
-                "name": "Jnnngs"
-            },
-            "tags": [
-                   "DevOps"
-            ],
-            "date_published": "2021-01-09T16:55:00+00:00",
-            "date_modified": "2021-05-20T16:39:13+01:00"
         }
     ]
 }
