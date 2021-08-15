@@ -3,7 +3,7 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-08-15T14:27:16+01:00</updated>
+    <updated>2021-08-15T14:30:51+01:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
@@ -16,16 +16,18 @@
         </author>
         <link href="https://jnnn.gs/chicken-marinade.html"/>
         <id>https://jnnn.gs/chicken-marinade.html</id>
+            <category term="Indian food"/>
 
-        <updated>2021-08-15T14:27:16+01:00</updated>
+        <updated>2021-08-15T14:30:51+01:00</updated>
             <summary>
                 <![CDATA[
-                    1 kg chicken 1 tsp salt 1 tsp turmeric power 1 tsp chilli power 2 tsp curry power 2 tsp coriander power 0.5 tsp cumin power 0.5 tsp garam masala power 4 tbs vegetable oil 4 tbs yogurt Good squeeze of lemon juice Mix and&hellip;
+                     1 kg chicken 1 tsp salt 1 tsp turmeric power 1 tsp chilli power 2 tsp curry power 2 tsp coriander power 0.5 tsp cumin power 0.5 tsp garam masala power 4 tbs vegetable oil 4 tbs yogurt Good squeeze of lemon juice Mix&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                <p>1 kg chicken</p>
+                <figure class="post__image post__image--center"><img loading="lazy"  src="https://jnnn.gs/media/posts/14/amazing-chicken-marinade-3.jpg" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/14/responsive/amazing-chicken-marinade-3-xs.jpg 300w ,https://jnnn.gs/media/posts/14/responsive/amazing-chicken-marinade-3-sm.jpg 480w ,https://jnnn.gs/media/posts/14/responsive/amazing-chicken-marinade-3-md.jpg 768w ,https://jnnn.gs/media/posts/14/responsive/amazing-chicken-marinade-3-lg.jpg 1024w ,https://jnnn.gs/media/posts/14/responsive/amazing-chicken-marinade-3-xl.jpg 1360w ,https://jnnn.gs/media/posts/14/responsive/amazing-chicken-marinade-3-2xl.jpg 1600w"  alt="" width="859" height="411"></figure>
+<p>1 kg chicken</p>
 <p>1 tsp salt</p>
 <p>1 tsp turmeric power</p>
 <p>1 tsp chilli power</p>
