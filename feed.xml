@@ -3,7 +3,7 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-09-11T09:38:39+01:00</updated>
+    <updated>2021-09-11T09:41:46+01:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
@@ -16,8 +16,9 @@
         </author>
         <link href="https://jnnn.gs/full-roast-chicken-biryani.html"/>
         <id>https://jnnn.gs/full-roast-chicken-biryani.html</id>
+            <category term="Indian food"/>
 
-        <updated>2021-09-11T09:38:39+01:00</updated>
+        <updated>2021-09-11T09:41:46+01:00</updated>
             <summary>
                 <![CDATA[
                      Background Okay, so this recipe is FANTASTIC and my first "I did this myself". The main different between this method and other traditional ones is that the chicken meat is from a fully cooked roast chicken and not from fresh uncooked and marinated chicken.
