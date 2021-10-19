@@ -3,12 +3,74 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-09-11T10:43:35+01:00</updated>
+    <updated>2021-10-19T08:41:06+01:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
     <id>https://jnnn.gs</id>
 
+    <entry>
+        <title>Clearing systemd journal logs</title>
+        <author>
+            <name>Jnnngs</name>
+        </author>
+        <link href="https://jnnn.gs/clearing-systemd-journal-logs.html"/>
+        <id>https://jnnn.gs/clearing-systemd-journal-logs.html</id>
+            <category term="ETH2"/>
+            <category term="DevOps"/>
+
+        <updated>2021-10-06T19:12:54+01:00</updated>
+            <summary>
+                <![CDATA[
+                    The systemd journal is systemd’s own logging system. It is equivalent to the syslog in the init system. It collects and stored kernel logging data, system log messages, standard output and error for various systemd services. A Linux machine with systemd writes the logs to /var/log/journal directory.
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>The <a href="https://wiki.archlinux.org/index.php/Systemd/Journal" rel="noreferrer noopener" target="_blank">systemd journal</a> is systemd’s own logging system. It is equivalent to the syslog in the init system. It collects and stored kernel logging data, system log messages, standard output and error for various systemd services.</p>
+<p>A Linux machine with systemd writes the logs to /var/log/journal directory. If you remember the <a href="https://linuxhandbook.com/linux-directory-structure/" rel="noreferrer noopener">Linux directory structure</a>, /var is where the system logs are stored.</p>
+<p>You can either manually view the log files <a href="https://linuxhandbook.com/less-command/" rel="noreferrer noopener">using less command</a> or <a href="https://linuxhandbook.com/journalctl-command/">use the journalctl command</a>. To view all the latest logs, use the command with reverse option.</p>
+<pre><code>journalctl -r</code><code><br></code></pre>
+<p>The thing with logging is that over the time, it starts to grow big. And if you <a href="https://linuxhandbook.com/df-command/" rel="noreferrer noopener">check the disk space in Linux</a>, you’ll see that sometimes, it takes several GB of space.</p>
+<p>First check the space taken by journal logs with the <a href="https://linuxhandbook.com/find-directory-size-du-command/" rel="noreferrer noopener">du command</a>:</p>
+<pre><code>du -sh /var/log/journal/</code></pre>
+<p>You can also use the journalctl command for the same task:</p>
+<pre><code>journalctl --disk-usage</code></pre>
+<p>Both of the command should give approximately the same result:</p>
+<pre><code>abhishek@linuxhandbook:~$ journalctl --disk-usage
+Archived and active journals take up 1.6G in the file system.
+
+abhishek@linuxhandbook:~$ sudo du -sh /var/log/journal/
+1.7G	/var/log/journal/</code></pre>
+<p>Now that you know how much space the journal logs take, you can decide if you want to clear the logs or not. If you decide to clear the journal logs, let me show you a couple of ways of doing it.</p>
+<p>You can of course use the rm command to delete the files in the log folder but I won’t advise that. The journalctl command gives you the proper way of handling old logs.</p>
+<p>First thing you should do is to rotate journal files. This will mark the currently active journal logs as archive and create fresh new logs. It’s optional but a good practice to do so.</p>
+<pre><code>sudo journalctl --rotate</code></pre>
+<p>Now you have three ways to clear old journal logs. You delete logs older than a certain time or you delete older log files so that total log size is limited to the predefined disk space or you limit number of log files. Let’s see how to use all three methods.</p>
+<h3 id="1-clear-journal-log-older-than-x-days">1. Clear journal log older than x days</h3>
+<p>Keep in mind that logs are important for auditing purpose so you should not delete all of them at the same time. Let’s say you want to keep the log history of just two days. To delete all entries older than two days, use this command:</p>
+<pre><code>sudo journalctl --vacuum-time=2d</code></pre>
+<p>Here’s what the output may look like:</p>
+<pre><code>Vacuuming done, freed 1.6G of archived journals from /var/log/journal/1b9ab93094fa4978beba80fd3c48a18c</code></pre>
+<p>You can also change the provide time frame in hours like 2h, in minutes like 2m, in seconds like 2s. If you want bigger time units, you can 2weeks, 2months as well.</p>
+<h3 id="2-restrict-logs-to-a-certain-size">2. Restrict logs to a certain size</h3>
+<p>Another way is to restrict the log size. With this, it will delete the journal log files until the disk space taken by journal logs falls below the size you specified.</p>
+<pre><code>sudo journalctl --vacuum-size=100M</code></pre>
+<p>This will reduce the log size to around 100 MB.</p>
+<pre><code>Vacuuming done, freed 40.0M of archived journals from /var/log/journal/1b9ab93094fa4978beba80fd3c48a18c.</code></pre>
+<p>You can specify the size in GB with G, MB with M, KB with K etc.</p>
+<h3 id="3-restrict-number-of-log-files">3. Restrict number of log files</h3>
+<p>The third way is to limit the number of log files. The journalctl usually has log files for the system and for the users. As the logs get old they are archived in various files.</p>
+<p>You can limit the number of archive log files. Let’s say you want to have only five log files.</p>
+<pre><code>journalctl --vacuum-files=5</code></pre>
+<p>It will remove the older archive log files leaving only the specified number of log files.</p>
+<pre><code>Deleted archived journal /var/log/journal/1b9ab93094fa4978beba80fd3c48a18c/system@d9fbc18533be4cb69483adf2a61505ac-00000000001e0bba-00059745988c0982.journal (8.0M).
+Deleted archived journal /var/log/journal/1b9ab93094fa4978beba80fd3c48a18c/user-1000@f571e91e5c6748a8a74666a448df78dd-00000000001e21d4-00059747a2ebd5a3.journal (48.0M).
+Deleted archived journal /var/log/journal/1b9ab93094fa4978beba80fd3c48a18c/system@d9fbc18533be4cb69483adf2a61505ac-00000000001e2414-00059747a32024d0.journal (48.0M).
+Vacuuming done, freed 104.0M of archived journals from /var/log/journal/1b9ab93</code></pre>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Full Roast Chicken Biryani</title>
         <author>
@@ -18,7 +80,7 @@
         <id>https://jnnn.gs/full-roast-chicken-biryani.html</id>
             <category term="Indian food"/>
 
-        <updated>2021-09-11T10:43:35+01:00</updated>
+        <updated>2021-10-13T10:14:37+01:00</updated>
             <summary>
                 <![CDATA[
                      Background Okay, so this recipe is FANTASTIC and my first "I did this myself". The main different between this method and other traditional ones is that the chicken meat is from a fully cooked roast chicken and not from fresh uncooked and marinated chicken.
@@ -67,10 +129,10 @@
 <li><span class="style-scope yt-formatted-string" dir="auto">2 heaped tsp garlic</span></li>
 <li><span class="style-scope yt-formatted-string" dir="auto">2 heaped tsp ginger</span></li>
 <li><span class="style-scope yt-formatted-string" dir="auto">2 green peppers</span></li>
-<li><span class="style-scope yt-formatted-string" dir="auto">chopped tomato or a tin</span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto">1 tin of chopped tomato's</span></li>
 <li><span class="style-scope yt-formatted-string" dir="auto">2 tablespoons tomato puree</span></li>
 <li><span class="style-scope yt-formatted-string" dir="auto">Roast chicken</span></li>
-<li><span class="style-scope yt-formatted-string" dir="auto">Pinch of salt</span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto">1/2 tsp of salt</span></li>
 <li>1/2 cup of roast chicken juices</li>
 </ul>
 </li>
@@ -79,13 +141,13 @@
 <ul>
 <li style="list-style-type: none;">
 <ul>
-<li>2 tsp chilli powder</li>
+<li>1 tsp chilli powder</li>
 <li>1/2 tsp turmeric</li>
-<li>1 tsp cumin powder</li>
-<li>1 tsp coriander powder</li>
-<li>1 tsp garam masala</li>
-<li>2 heaped tsp curry powder</li>
-<li>1 tsp salt</li>
+<li>1/2 tsp cumin powder</li>
+<li>1/2 tsp coriander powder</li>
+<li>1/2 tsp garam masala</li>
+<li>1 heaped tsp curry powder</li>
+<li>1/2 tsp salt</li>
 </ul>
 </li>
 </ul>
@@ -204,7 +266,7 @@
         <id>https://jnnn.gs/chicken-bhuna.html</id>
             <category term="Indian food"/>
 
-        <updated>2021-08-12T08:58:24+01:00</updated>
+        <updated>2021-10-13T10:13:44+01:00</updated>
             <summary>
                 <![CDATA[
                      Method Open and start drinking 1 India beer First add 2 tablespoons of vegetable oil to a large pan, put it on a medium-high heat and add the cumin seeds, onion seeds, bay leaves, cardamom pod and cinnamon. When the seeds begin to crackle&hellip;
@@ -218,7 +280,7 @@
 <li>Open and start drinking 1 India beer</li>
 <li>First add 2 tablespoons of vegetable oil to a large pan, put it on a medium-high heat and add the cumin seeds, onion seeds, bay leaves, cardamom pod and cinnamon.</li>
 <li>When the seeds begin to crackle quickly add your diced onion and stir to combine. stir fry for a few minutes before adding your teaspoons of garlic and ginger paste, continue cooking for a further 5 minutes or so or until the onions start to go translucent and brown.</li>
-<li>Add your green peppers and chopped tomato pieces, add in your spice mix as well and give it a good stir. Stir fry for 30 seconds or so, just get the spices hot and well mixed before adding in your tomato puree over them. Stir to combine and cook for a minute or two.</li>
+<li>Add your green peppers and tin of chopped tomato's, add in your spice mix as well and give it a good stir. Stir fry for 30 seconds or so, just get the spices hot and well mixed before adding in your tomato puree over them. Stir to combine and cook for a minute or two.</li>
 <li>Add in your chicken pieces and stir to combine, continue to stir and fry for a minute or so until the chicken has cooked through properly add your 1/2 cup of water and allow it to cook and reduce down till desired consistency!</li>
 </ol>
 <h2><span class="style-scope yt-formatted-string" dir="auto"><strong>Ingredients</strong></span></h2>
@@ -230,14 +292,14 @@
 <li><span class="style-scope yt-formatted-string" dir="auto"> 2 bay leaves </span></li>
 <li><span class="style-scope yt-formatted-string" dir="auto">1 inch cinnamon stick </span></li>
 <li><span class="style-scope yt-formatted-string" dir="auto">1 cardamom pod </span></li>
-<li><span class="style-scope yt-formatted-string" dir="auto">1 medium onion diced </span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto">1 or 2 medium onion diced </span></li>
 <li><span class="style-scope yt-formatted-string" dir="auto">1 heaped tsp garlic </span></li>
 <li><span class="style-scope yt-formatted-string" dir="auto">1 heaped tsp ginger </span></li>
 <li><span class="style-scope yt-formatted-string" dir="auto">2 green peppers </span></li>
-<li><span class="style-scope yt-formatted-string" dir="auto">1/2 chopped tomato </span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto">1 tin of chopped tomato's</span></li>
 <li><span class="style-scope yt-formatted-string" dir="auto">2 tablespoons tomato puree</span></li>
 <li><span class="style-scope yt-formatted-string" dir="auto">2 chicken breasts </span></li>
-<li><span class="style-scope yt-formatted-string" dir="auto">Pinch of salt</span></li>
+<li><span class="style-scope yt-formatted-string" dir="auto">1/2 tsp of salt</span></li>
 <li><span class="style-scope yt-formatted-string" dir="auto"> 250ml water or base Gravy</span></li>
 </ul>
 <h2>Spice mix</h2>
@@ -248,7 +310,7 @@
 <li>1/2 tsp coriander powder</li>
 <li>1/2 tsp garam masala</li>
 <li>1 heaped tsp curry powder</li>
-<li>1 tsp salt</li>
+<li><span class="style-scope yt-formatted-string" dir="auto">1/2 tsp to 1 tsp of salt</span></li>
 </ul>
             ]]>
         </content>
@@ -482,7 +544,7 @@ SSH Remote Host : 192.168.0.11 </pre>
             <category term="ETH2"/>
             <category term="DevOps"/>
 
-        <updated>2021-05-20T16:38:45+01:00</updated>
+        <updated>2021-10-19T08:41:06+01:00</updated>
             <summary>
                 <![CDATA[
                     So, I have a ETH2 validator node which uses a Hetzner AX41 dedicated server and has been running since genesis. The set-up includes a GETH ETH1 node, beacon chain and the ETH2 Validator (Prysm) and is slowly using the allocated 1TB NVMe disk space (2&hellip;
@@ -523,47 +585,36 @@ journalctl -fu geth</code></address><address style="margin: 0in; font-family: Ca
 <figcaption>Finished Pruning Geth</figcaption>
 </figure>
 </div></div>
-<address><cite style="margin: 0in; font-family: Calibri; font-size: 9.0pt; color: #595959;"> </cite><span style="font-style: italic;">Once pruning and dB compacting has finished...</span></address>
-<ol style="margin-left: .375in; direction: ltr; unicode-bidi: embed; margin-top: 0in; margin-bottom: 0in; font-family: Calibri; font-size: 11.0pt; font-weight: normal; font-style: normal;" type="1">
-<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;" value="1"><address><span style="font-family: Calibri; font-size: 11.0pt; font-weight: normal; font-style: normal;">Stop Geth</span></address></li>
-<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><address><span style="font-family: Calibri; font-size: 11.0pt;">Change Service ExecStart back to original config (comment out Prune line and uncomment original one)</span></address></li>
-<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><address><span style="font-family: Calibri; font-size: 11.0pt;">Reload Service config</span></address></li>
-<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><address><span style="font-family: Calibri; font-size: 11.0pt;">Start Geth</span></address></li>
-<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><address><span style="font-family: Calibri; font-size: 11.0pt;">Check Service status</span></address></li>
-<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><address><span style="font-family: Calibri; font-size: 11.0pt;">Check Geth logs</span></address></li>
-<li><address>Check Geth working directory size again</address></li>
-</ol>
-<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </p>
+<address><em><cite style="margin: 0in; font-family: Calibri; font-size: 9.0pt; color: #595959;"> </cite>Once pruning and dB compacting has finished...</em></address><address> </address><address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Stop Geth in Pruning mode</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
+geth stop</code></address></address></div>
+<div tabindex="0" role="button" aria-label="More" aria-controls="popout_2379" aria-expanded="false"> </div>
+<address tabindex="0" role="button" aria-label="More" aria-controls="popout_2379" aria-expanded="false"><span style="color: #3598db;">#Change Service back to normal (comment out the Prune exec line)</span><br><address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">vi /etc/systemd/system/geth.service</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><span style="font-style: italic;">[Uncomment the normal ExecStart removing the #]</span></address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">ExecStart=/usr/bin/geth blah blah blah</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><span style="font-style: italic;">[Comment out the ExecStart to prune with an #]</span></address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;"><strong>#</strong>ExecStart=/usr/bin/geth
+snapshot prune-state</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Reload Service config</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo
+systemctl daemon-reload</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Start Geth in normal mode</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
+geth start</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check Geth service status</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
+geth status</code></address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check Geth service logs for normal activity</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo
+journalctl -fu geth</code></address></address><br><address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check current size of GETH data location</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">du -sh &lt;WorkingDirectory&gt;</code></address></address><br>
 <p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;">Boom!</p>
+<br>
+<h2 style="margin: 0in; font-family: Calibri; font-size: 24.0pt; color: #1e4e79;">Useful commands</h2>
+<p>If you encounter any errors during the pruning, then you may wish to consider starting a fresh and removing the Geth chain data. There is a formal and easy way to remove the data and start again, but sometimes Geth can get mixed up if a previous Geth has been running and created multiple chain data folders. In this scenario, you can manually remove the folder and Geth will sync from day one.</p>
+<pre>NB: Geth working directory when running within a service is typically "/home/geth/"</pre>
+<h3>Formal removal of Geth Chaindata</h3>
+<address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><address><address> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Stop Geth in normal mode</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
+geth stop</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Remove Geth database (chaindata) <span style="color: #e03e2d;">NB: Ensure that the prompted Geth working directory is what you expect it to be. If its not, then you may consider the informal method for removing the Geth chaindata.</span></address><address> </address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">geth removedb</code></address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><address> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Start Geth in normal mode</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
+geth start</code></address></address><address> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check Geth service logs for normal activity</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo
+journalctl -fu geth</code></address></address><br><address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check current size of GETH data location</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">du -sh &lt;WorkingDirectory&gt;</code></address></address><br>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"><span style="color: #000000;">Boom!</span></p>
+<h3>Informal removal of Geth Chaindata</h3>
+<address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><address><address> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Stop Geth in normal mode</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
+geth stop</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#manually remove Geth database (chaindata) <span style="color: #e03e2d;">NB: Ensure the correct path is used for the Geth working directory (/home/geth/ used in this example</span></address><address> </address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo rm -rf /home/geth/.ethereum/geth/chaindata/</code></address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><address> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Start Geth in normal mode</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
+geth start</code></address></address><address> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check Geth service logs for normal activity</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo
+journalctl -fu geth</code></address></address><br><address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check current size of GETH data location</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">du -sh &lt;WorkingDirectory&gt;</code></address></address><br>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"><span style="color: #000000;">Boom!</span></p>
+</address></address></address></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>When to use VNet Peering vs VPN Gateway on Azure</title>
-        <author>
-            <name>Jnnngs</name>
-        </author>
-        <link href="https://jnnn.gs/when-to-use-vnet-peering-vs-vpn-gateway-on-azure.html"/>
-        <id>https://jnnn.gs/when-to-use-vnet-peering-vs-vpn-gateway-on-azure.html</id>
-            <category term="DevOps"/>
-            <category term="Azure"/>
-
-        <updated>2021-05-20T16:38:57+01:00</updated>
-            <summary>
-                <![CDATA[
-                    I was recently playing about with the Hub and Spoke model within Azure and came across two methods to provide connectivity between the two. The idea behind the design pattern is that the Hub is the main entry point with common services for the Spoke(s)&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <p>I was recently playing about with the <a href="https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli" target="_blank" rel="noopener noreferrer">Hub and Spoke</a> model within Azure and came across two methods to provide connectivity between the two. The idea behind the design pattern is that the Hub is the main entry point with common services for the Spoke(s) to use. The Hub typically has some type of WAF or FW, to help protect and direct the inbound traffic. Its considered best practice that Spokes do not communicate directly with one another, but that all traffic is routed via the Hub. This enables central Hub control and visibility. </p>
-<p>TBC....the rest...</p>
-<p> </p>
             ]]>
         </content>
     </entry>
