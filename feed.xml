@@ -3,14 +3,14 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-10-19T16:19:51+01:00</updated>
+    <updated>2021-10-20T11:48:28+01:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
     <id>https://jnnn.gs</id>
 
     <entry>
-        <title>Clearing systemd journal logs</title>
+        <title>3Clearing systemd journal logs</title>
         <author>
             <name>Jnnngs</name>
         </author>
@@ -19,7 +19,7 @@
             <category term="ETH2"/>
             <category term="DevOps"/>
 
-        <updated>2021-10-19T16:19:51+01:00</updated>
+        <updated>2021-10-20T11:48:28+01:00</updated>
             <summary>
                 <![CDATA[
                     The systemd journal is systemd’s own logging system. It is equivalent to the syslog in the init system. It collects and stored kernel logging data, system log messages, standard output and error for various systemd services. A Linux machine with systemd writes the logs to /var/log/journal directory.
