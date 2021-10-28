@@ -3,12 +3,45 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-10-22T17:51:11+01:00</updated>
+    <updated>2021-10-28T10:41:41+01:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
     <id>https://jnnn.gs</id>
 
+    <entry>
+        <title>Portainer agent updating with watchtower</title>
+        <author>
+            <name>Jnnngs</name>
+        </author>
+        <link href="https://jnnn.gs/portainer-agent-updating-with-watchtower.html"/>
+        <id>https://jnnn.gs/portainer-agent-updating-with-watchtower.html</id>
+            <category term="DevOps"/>
+
+        <updated>2021-10-28T10:41:41+01:00</updated>
+            <summary>
+                <![CDATA[
+                    I use watchtower to update my containers but the Portainer agent keeps to have issues when updated. Whenever watchtower updates the container, it keeps restarting with the following error message: agent_1 | 2021/08/05 12:22:25 [ERROR] [main,docker] [message: Unable to retrieve local agent IP address] [error:&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>I use watchtower to update my containers but the Portainer agent keeps to have issues when updated. Whenever watchtower updates the container, it keeps restarting with the following error message:</p>
+<p><code>agent_1 | 2021/08/05 12:22:25 [ERROR] [main,docker] [message: Unable to retrieve local agent IP address] [error: Error: No such container: 6c9fd4504fb5]</code></p>
+<p>I use the following docker command to add the agent:</p>
+<div class="snippet-clipboard-content position-relative overflow-auto">
+<pre><code>docker run -d \<br>    -v /var/run/docker.sock:/var/run/docker.sock \<br>    -v /var/lib/docker/volumes:/var/lib/docker/volumes \<br>    -v /:/host \<br>    -v portainer_agent_data:/data \<br>    --restart always \<br>    -e EDGE=1 \<br>    -e EDGE_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXX \<br>    -e EDGE_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXX \<br>    -e CAP_HOST_MANAGEMENT=1 \<br>    -e EDGE_INSECURE_POLL=1 \<br>    portainer/agent:latest
+</code></pre>
+</div>
+<p> The problem is with watchtower, as it clones the container configs included hostname when upgrading the container.</p>
+<p>When upgrade/re-creating the container, by default the docker daemon will assign a new hostname to the container and update internal dns, but the watchtower won't update the container hostname after the container upgrade so the agent will try to look up the old hostname and it would be getting nxdomain result by docker internal dns.</p>
+<p>The fix is to assign a container name and a container hostname so that they stay the same and not causing watchtower issues.</p>
+<div class="snippet-clipboard-content position-relative overflow-auto">
+<pre><code>docker run -d \<br>    -v /var/run/docker.sock:/var/run/docker.sock \<br>    -v /var/lib/docker/volumes:/var/lib/docker/volumes \<br>    -v /:/host \<br>    -v portainer_agent_data:/data \<br>    --restart always \<br>    -e EDGE=1 \<br>    -e EDGE_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXX \<br>    -e EDGE_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXX \<br>    -e CAP_HOST_MANAGEMENT=1 \<br>    -e EDGE_INSECURE_POLL=1 \<br><strong>    --name portainer_edge_agent \</strong><br><strong>    --hostname portainer_edge_agent \</strong><br>    portainer/agent:latest    portainer/agent:latest</code></pre>
+</div>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Clearing systemd journal logs</title>
         <author>
@@ -532,90 +565,6 @@ SSH Remote Host : 192.168.0.11 </pre>
 <h4>Step 5: Login from 192.168.0.10 to 192.168.0.11 Server without Password</h4>
 <pre><strong>ssh -p 22 fred@192.168.0.11</strong></pre>
 <p> </p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>Reduce GETH ETH Node Disk Space Usage</title>
-        <author>
-            <name>Jnnngs</name>
-        </author>
-        <link href="https://jnnn.gs/eth2-node-reduce-disk-space-usage.html"/>
-        <id>https://jnnn.gs/eth2-node-reduce-disk-space-usage.html</id>
-            <category term="ETH2"/>
-            <category term="DevOps"/>
-
-        <updated>2021-10-19T08:41:06+01:00</updated>
-            <summary>
-                <![CDATA[
-                    So, I have a ETH2 validator node which uses a Hetzner AX41 dedicated server and has been running since genesis. The set-up includes a GETH ETH1 node, beacon chain and the ETH2 Validator (Prysm) and is slowly using the allocated 1TB NVMe disk space (2&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <p>So, I have a ETH2 validator node which uses a Hetzner AX41 dedicated server and has been running since genesis. The set-up includes a GETH ETH1 node, beacon chain and the ETH2 Validator (Prysm) and is slowly using the allocated 1TB NVMe disk space (2 x 512GB using RAID 0). I reached out to the Prysm Discord channel to seek advice and what is best to do. A very friendly chap replied and I thought it useful to share in case anyone else has the same challenge.</p>
-<div id="chat-messages-825015216634593311" class="message-2qnXI6 cozyMessage-3V1Y8y wrapper-2a6GCs cozy-3raOZG zalgo-jN1Ica" tabindex="-1" role="listitem" data-list-item-id="chat-messages___chat-messages-825015216634593311">
-<div class="buttonContainer-DHceWr">
-<div class="buttons-cl5qTG container-3npvBV" aria-label="Message Actions">
-<div class="wrapper-2aW0bm">
-<div tabindex="0" role="button" aria-label="More" aria-controls="popout_2379" aria-expanded="false"> </div>
-<div tabindex="0" role="button" aria-label="More" aria-controls="popout_2379" aria-expanded="false">I came across a <a href="https://www.reddit.com/r/ethstaker/comments/m8ppq6/just_got_back_200gb_of_disk_space_from_geth/" target="_blank" rel="noopener noreferrer">Redit post</a> that used the first method suggested from Discord although using a Geth Service method. This is the approach I followed and it was very simple to implement. Notes below...</div>
-<div tabindex="0" role="button" aria-label="More" aria-controls="popout_2379" aria-expanded="false"> </div>
-<div tabindex="0" role="button" aria-label="More" aria-controls="popout_2379" aria-expanded="false">
-<h2 style="margin: 0in; font-family: Calibri; font-size: 24.0pt; color: #1e4e79;">Simple way to prune GETH diskspace</h2>
-<h2 style="margin: 0in; font-family: Calibri; font-size: 16.0pt; color: #1e4e79;"> </h2>
-<address style="margin: 0in; font-family: Calibri; font-size: 16.0pt; color: #1e4e79;">Beacon-node set-up</address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Set-up Beacon-chain failover for <span style="color: #2dc26b;"> <a href="https://infura.io/" target="_blank" rel="noopener noreferrer">infura.io</a> <span style="color: #3598db;">free or</span> <a href="https://alchemyapi.io/" target="_blank" rel="noopener noreferrer">alchemy.io</a><span style="color: #3598db;"> free.</span></span></address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><em><span style="color: #2dc26b;"><span style="color: #3598db;"><a href="https://docs.prylabs.network/docs/prysm-usage/setup-eth1/#adding-fallback-eth1-nodes" target="_blank" rel="noopener noreferrer">#Prylabs fallback eth1 nodes documentation.</a></span></span></em></address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"> </address><address class="token-line"><code><span class="token key atrule">http-web3provider</span><span class="token punctuation">:</span><span class="token plain"> http</span><span class="token punctuation">:</span><span class="token plain">//localhost</span><span class="token punctuation">:</span><span class="token number">8545</span></code></address><address class="token-line"><code><span class="token key atrule">fallback-web3provider</span><span class="token punctuation">:</span></code></address><address class="token-line"><code><span class="token punctuation">-</span><span class="token plain"> https</span><span class="token punctuation">:</span><span class="token plain">//mainnet.infura.io/v3/YOUR</span><span class="token punctuation">-</span><span class="token plain">PROJECT</span><span class="token punctuation">-</span><span class="token plain">ID</span></code></address><address class="token-line"><code><span class="token punctuation">-</span><span class="token plain"> https</span><span class="token punctuation">:</span><span class="token plain">//eth</span><span class="token punctuation">-</span><span class="token plain">mainnet.alchemyapi.io/v2/YOUR</span><span class="token punctuation">-</span><span class="token plain">PROJECT</span><span class="token punctuation">-</span><span class="token plain">ID</span></code></address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Restart Beacon-node</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service beacon-node restart</code></address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check  Beacon-node service status</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
-beacon-node status</code></address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check Beacon-node service logs for activity</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo
-journalctl -fu beacon-node</code></address>
-<h2 style="margin: 0in; font-family: Calibri; font-size: 16.0pt; color: #1e4e79;"> </h2>
-<address style="margin: 0in; font-family: Calibri; font-size: 16.0pt; color: #1e4e79;">Geth node pruning</address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check location of Geth working directory</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">cat /etc/systemd/system/geth.service</code></address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Get current size of GETH data location</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">du -sh &lt;WorkingDirectory&gt;</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Stop Geth</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
-geth stop</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Change Service to Prune</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">vi /etc/systemd/system/geth.service</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><span style="font-style: italic;">[Comment out existing ExecStart using a #]</span></address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;"><strong><span style="color: #fa0000;">#</span></strong>ExecStart=/usr/bin/geth blah blah blah</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><span style="font-style: italic;">[Add new ExecStart to prune]</span></address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">ExecStart=/usr/bin/geth
-snapshot prune-state</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Reload Service config</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo
-systemctl daemon-reload</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Start Geth Pruning</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
-geth start</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check Geth service status</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
-geth status</code></address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check Geth service logs for pruning activity</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo
-journalctl -fu geth</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #595959;"><span style="font-style: italic;">Logs should look something like this and can take up to 4 hours to complete…</span></address>
-<div class="gallery-wrapper"><div class="gallery"  data-is-empty="false" data-columns="3">
-<figure class="gallery__item"><a href="https://jnnn.gs/media/posts/7/gallery/GethPrune.png" data-size="1333x418"><img loading="lazy" src="https://jnnn.gs/media/posts/7/gallery/GethPrune-thumbnail.png" alt="Pruning" width="720" height="226"></a>
-<figcaption>Pruning Geth</figcaption>
-</figure>
-<figure class="gallery__item"><a href="https://jnnn.gs/media/posts/7/gallery/GethCompact.png" data-size="1357x418"><img loading="lazy" src="https://jnnn.gs/media/posts/7/gallery/GethCompact-thumbnail.png" alt="Compressing" width="720" height="222"></a>
-<figcaption>Compressing Geth dB</figcaption>
-</figure>
-<figure class="gallery__item"><a href="https://jnnn.gs/media/posts/7/gallery/GethFinished.png" data-size="1357x418"><img loading="lazy" src="https://jnnn.gs/media/posts/7/gallery/GethFinished-thumbnail.png" alt="Finished" width="720" height="222"></a>
-<figcaption>Finished Pruning Geth</figcaption>
-</figure>
-</div></div>
-<address><em><cite style="margin: 0in; font-family: Calibri; font-size: 9.0pt; color: #595959;"> </cite>Once pruning and dB compacting has finished...</em></address><address> </address><address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Stop Geth in Pruning mode</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
-geth stop</code></address></address></div>
-<div tabindex="0" role="button" aria-label="More" aria-controls="popout_2379" aria-expanded="false"> </div>
-<address tabindex="0" role="button" aria-label="More" aria-controls="popout_2379" aria-expanded="false"><span style="color: #3598db;">#Change Service back to normal (comment out the Prune exec line)</span><br><address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">vi /etc/systemd/system/geth.service</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><span style="font-style: italic;">[Uncomment the normal ExecStart removing the #]</span></address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">ExecStart=/usr/bin/geth blah blah blah</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><span style="font-style: italic;">[Comment out the ExecStart to prune with an #]</span></address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;"><strong>#</strong>ExecStart=/usr/bin/geth
-snapshot prune-state</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Reload Service config</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo
-systemctl daemon-reload</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Start Geth in normal mode</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
-geth start</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check Geth service status</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
-geth status</code></address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check Geth service logs for normal activity</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo
-journalctl -fu geth</code></address></address><br><address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check current size of GETH data location</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">du -sh &lt;WorkingDirectory&gt;</code></address></address><br>
-<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;">Boom!</p>
-<br>
-<h2 style="margin: 0in; font-family: Calibri; font-size: 24.0pt; color: #1e4e79;">Useful commands</h2>
-<p>If you encounter any errors during the pruning, then you may wish to consider starting a fresh and removing the Geth chain data. There is a formal and easy way to remove the data and start again, but sometimes Geth can get mixed up if a previous Geth has been running and created multiple chain data folders. In this scenario, you can manually remove the folder and Geth will sync from day one.</p>
-<pre>NB: Geth working directory when running within a service is typically "/home/geth/"</pre>
-<h3>Formal removal of Geth Chaindata</h3>
-<address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><address><address> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Stop Geth in normal mode</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
-geth stop</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Remove Geth database (chaindata) <span style="color: #e03e2d;">NB: Ensure that the prompted Geth working directory is what you expect it to be. If its not, then you may consider the informal method for removing the Geth chaindata.</span></address><address> </address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">geth removedb</code></address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><address> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Start Geth in normal mode</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
-geth start</code></address></address><address> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check Geth service logs for normal activity</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo
-journalctl -fu geth</code></address></address><br><address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check current size of GETH data location</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">du -sh &lt;WorkingDirectory&gt;</code></address></address><br>
-<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"><span style="color: #000000;">Boom!</span></p>
-<h3>Informal removal of Geth Chaindata</h3>
-<address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><address><address> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Stop Geth in normal mode</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
-geth stop</code></address><address style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#manually remove Geth database (chaindata) <span style="color: #e03e2d;">NB: Ensure the correct path is used for the Geth working directory (/home/geth/ used in this example</span></address><address> </address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo rm -rf /home/geth/.ethereum/geth/chaindata/</code></address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;"><address> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Start Geth in normal mode</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo service
-geth start</code></address></address><address> </address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check Geth service logs for normal activity</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">sudo
-journalctl -fu geth</code></address></address><br><address><address style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #5b9bd5;">#Check current size of GETH data location</address><address><code style="margin: 0in; font-family: Consolas; font-size: 11.0pt;">du -sh &lt;WorkingDirectory&gt;</code></address></address><br>
-<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"><span style="color: #000000;">Boom!</span></p>
-</address></address></address></div>
-</div>
-</div>
-</div>
             ]]>
         </content>
     </entry>
