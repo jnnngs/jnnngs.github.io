@@ -10,6 +10,21 @@
     },
     "items": [
         {
+            "id": "https://jnnn.gs/upgrading-teleport-nodes.html",
+            "url": "https://jnnn.gs/upgrading-teleport-nodes.html",
+            "title": "Upgrading Teleport nodes",
+            "summary": "I use Teleport as part of my home lab for secure and easy access to the servers. Each node (and master) requires the teleport client to be installed and this post is aimed as a reminder on how to upgrade the Teleport agents on each&hellip;",
+            "content_html": "<p>I use <a href=\"https://goteleport.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Teleport</a> as part of my home lab for secure and easy access to the servers. Each node (and master) requires the teleport client to be installed and this post is aimed as a reminder on how to upgrade the Teleport agents on each node.</p>\n<p>As a reference, I followed <a href=\"https://www.the-digital-life.com/ssh-teleport/\" target=\"_blank\" rel=\"noopener noreferrer\">the digital-life</a> installation and usage post who generally has some great posts and YouTube videos.</p>\n<h2>Update Teleport Node</h2>\n<ul>\n<li>Visit the Teleport download page and right-hand click and copy the latest version for your server (e.g. Ubuntu is Linux 64-bit DEB)</li>\n<li>SSH into the node and download the .deb file</li>\n</ul>\n<p class=\"align-left\"><code>wget <a href=\"https://get.gravitational.com/teleport_8.0.1_amd64.deb\">https://get.gravitational.com/teleport_8.0.1_amd64.deb</a></code></p>\n<ul>\n<li>Install the .deb, which will update the previous version</li>\n</ul>\n<p class=\"align-left\"><code>dpkg -i teleport_8.0.1_amd64.deb</code></p>\n<ul>\n<li>Check the version of Teleport client</li>\n</ul>\n<p><code>tctl version</code></p>\n<p>Done!</p>\n<p><em>NB: Remember that the Master node needs its client updating as well</em></p>",
+            "author": {
+                "name": "Jnnngs"
+            },
+            "tags": [
+                   "DevOps"
+            ],
+            "date_published": "2021-12-10T13:06:40+00:00",
+            "date_modified": "2021-12-10T13:17:45+00:00"
+        },
+        {
             "id": "https://jnnn.gs/portainer-agent-updating-with-watchtower.html",
             "url": "https://jnnn.gs/portainer-agent-updating-with-watchtower.html",
             "title": "Portainer agent updating with watchtower",
@@ -144,21 +159,6 @@
             ],
             "date_published": "2021-05-15T15:22:02+01:00",
             "date_modified": "2021-05-20T16:39:46+01:00"
-        },
-        {
-            "id": "https://jnnn.gs/ssh-passwordless-login-using-ssh-keygen-in-5-easy-steps.html",
-            "url": "https://jnnn.gs/ssh-passwordless-login-using-ssh-keygen-in-5-easy-steps.html",
-            "title": "SSH Passwordless Login Using SSH Keygen in 5 Easy Steps",
-            "summary": "NB: Follow this guide for Jenkins CD Using Password-less login with SSH keys will increase the trust between two Linux servers for easy file synchronization or transfer. SSH Client : 192.168.0.10 SSH Remote Host : 192.168.0.11 In this example, we will set up SSH password-less automatic login from server 192.168.0.10&hellip;",
-            "content_html": "<p><code>NB: Follow this <a href=\"https://jnnn.gs/jenkins-deployment-ssh-keygen.html\">guide</a> for Jenkins CD</code></p>\n<p>Using Password-less login with <strong>SSH keys</strong> will increase the trust between two <strong>Linux</strong> servers for easy file synchronization or transfer.</p>\n<pre>SSH Client : 192.168.0.10 \nSSH Remote Host : 192.168.0.11 </pre>\n<p>In this example, we will set up <strong>SSH password-less</strong> automatic login from server<strong> 192.168.0.10</strong> as user <strong>bob</strong> to <strong>192.168.0.11</strong> with user <strong>fred</strong>. Please note that ALL commands are run via the SSH Client 192.168.0.10</p>\n<h4>Step 1: Create Authentication SSH-Keygen Keys on 192.168.0.10</h4>\n<pre><strong>ssh-keygen -t rsa</strong></pre>\n<h4>Step 2: Create .ssh Directory on – 192.168.0.11 (via 192.168.0.10)</h4>\n<pre><strong>ssh -p 22 fred@192.168.0.11 mkdir -p .ssh</strong></pre>\n<h4>Step 3: Upload Generated Public Keys to – 192.168.0.11 (via 192.168.0.10)</h4>\n<pre><strong>cat .ssh/id_rsa.pub | ssh -p 22 fred@192.168.0.11 'cat &gt;&gt; .ssh/authorized_keys'</strong></pre>\n<h4>Step 4: Set Permissions on – 192.168.0.11 (via 192.168.0.10)</h4>\n<pre><strong>ssh -p 22 fred@192.168.0.11 \"chmod 700 .ssh; chmod 640 .ssh/authorized_keys\"</strong></pre>\n<h4>Step 5: Login from 192.168.0.10 to 192.168.0.11 Server without Password</h4>\n<pre><strong>ssh -p 22 fred@192.168.0.11</strong></pre>\n<p> </p>",
-            "author": {
-                "name": "Jnnngs"
-            },
-            "tags": [
-                   "DevOps"
-            ],
-            "date_published": "2021-05-15T11:32:46+01:00",
-            "date_modified": "2021-10-22T17:51:11+01:00"
         }
     ]
 }
