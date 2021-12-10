@@ -3,12 +3,56 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-12-10T13:17:45+00:00</updated>
+    <updated>2021-12-10T14:11:02+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
     <id>https://jnnn.gs</id>
 
+    <entry>
+        <title>Add additional Teleport nodes</title>
+        <author>
+            <name>Jnnngs</name>
+        </author>
+        <link href="https://jnnn.gs/add-additional-teleport-nodes.html"/>
+        <id>https://jnnn.gs/add-additional-teleport-nodes.html</id>
+
+        <updated>2021-12-10T14:11:02+00:00</updated>
+            <summary>
+                <![CDATA[
+                    When adding additional teleport nodes for SSH, the documentation points to running the command line rather than setting up a Linux service, which will run in the background and survive a reboot. The following steps will act as a reminder on how to add additional&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>When adding additional teleport nodes for SSH, the documentation points to running the command line rather than setting up a Linux service, which will run in the background and survive a reboot. The following steps will act as a reminder on how to add additional nodes for SSH.</p>
+<h2><span style="color: #34495e;">tctl nodes <span class="token function">add</span></span></h2>
+<p>The "<code>tctl nodes add</code>" command provides a time-bound token for a node to use so that the master accepts the request. As I run the main teleport server within docker, you need to execute this command within the docker container.</p>
+<figure class="post__image post__image--center"><img loading="lazy"  src="https://jnnn.gs/media/posts/19/2021-12-10_13-34-46.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/19/responsive/2021-12-10_13-34-46-xs.png 300w ,https://jnnn.gs/media/posts/19/responsive/2021-12-10_13-34-46-sm.png 480w ,https://jnnn.gs/media/posts/19/responsive/2021-12-10_13-34-46-md.png 768w ,https://jnnn.gs/media/posts/19/responsive/2021-12-10_13-34-46-lg.png 1024w ,https://jnnn.gs/media/posts/19/responsive/2021-12-10_13-34-46-xl.png 1360w ,https://jnnn.gs/media/posts/19/responsive/2021-12-10_13-34-46-2xl.png 1600w"  alt="" width="1142" height="691"></figure>
+<p>and then</p>
+<figure class="post__image post__image--center"><img loading="lazy"  src="https://jnnn.gs/media/posts/19/2021-12-10_13-38-01.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/19/responsive/2021-12-10_13-38-01-xs.png 300w ,https://jnnn.gs/media/posts/19/responsive/2021-12-10_13-38-01-sm.png 480w ,https://jnnn.gs/media/posts/19/responsive/2021-12-10_13-38-01-md.png 768w ,https://jnnn.gs/media/posts/19/responsive/2021-12-10_13-38-01-lg.png 1024w ,https://jnnn.gs/media/posts/19/responsive/2021-12-10_13-38-01-xl.png 1360w ,https://jnnn.gs/media/posts/19/responsive/2021-12-10_13-38-01-2xl.png 1600w"  alt="" width="1100" height="750"></figure>
+<p>On the new server, perform the following:-</p>
+<ul>
+<li>Visit the Teleport download page and right-hand click and copy the latest version for your server (e.g. Ubuntu is Linux 64-bit DEB)</li>
+<li>SSH into the node and download the .deb file</li>
+</ul>
+<p class="align-left"><code>wget <a href="https://get.gravitational.com/teleport_8.0.1_amd64.deb">https://get.gravitational.com/teleport_8.0.1_amd64.deb</a></code></p>
+<ul>
+<li>Install the .deb, which will update the previous version</li>
+</ul>
+<p class="align-left"><code>dpkg -i teleport_8.0.1_amd64.deb</code></p>
+<ul>
+<li>Check the version of Teleport client</li>
+</ul>
+<p><code>tctl version</code></p>
+<p>Create a new configuration file <strong>/etc/teleport.yaml</strong> and add the following values and replacing the fields within &lt; brackets &gt; with actuals values taken from the <code>tctl nodes </code><span class="token function"><code>add</code> <span style="color: #34495e;">command.</span></span></p>
+<p><code>teleport:<br>  nodename: &lt;node-name&gt;<br>  data_dir: /var/lib/teleport<br>  auth_token: &lt;your-auth-token&gt;<br>  auth_servers:<br>    - &lt;your-fqdn&gt;:3025<br>  log:<br>  output: stderr<br>  severity: INFO<br>  ca_pin: &lt;your-ca-pin-hash&gt;<br>auth_service:<br>  enabled: no<br>ssh_service:<br>  enabled: yes<br>proxy_service:<br>  enabled: no</code></p>
+<p>Start the teleport service with the command:</p>
+<p><code>Sudo systemctl <span class="token builtin class-name">enable</span> –now teleport</code></p>
+<p>If everything works successfully, you should be able to see the new node in the teleport proxy server.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Upgrading Teleport nodes</title>
         <author>
@@ -500,73 +544,6 @@ Vacuuming done, freed 104.0M of archived journals from /var/log/journal/1b9ab93<
 <li>1 heaped tsp English butter (optional)</li>
 <li>1 tbsp fresh coriander for garnish</li>
 </ol>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>Samosa Chaat</title>
-        <author>
-            <name>Jnnngs</name>
-        </author>
-        <link href="https://jnnn.gs/samosa-chaat.html"/>
-        <id>https://jnnn.gs/samosa-chaat.html</id>
-            <category term="Indian food"/>
-
-        <updated>2021-05-20T16:39:46+01:00</updated>
-            <summary>
-                <![CDATA[
-                     Sauce (Chaat) Open and start drinking 1 India beer Peel and finely chop 1 red onion Open and drain one can of chickpeas Heat 2 1/2 tbs of oil in a cooking pot Add the red onion and cook until golden Add 1 tbs&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <h3><figure class="post__image post__image--center"><img loading="lazy"  src="https://jnnn.gs/media/posts/9/Samosa-Chaat.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/9/responsive/Samosa-Chaat-xs.png 300w ,https://jnnn.gs/media/posts/9/responsive/Samosa-Chaat-sm.png 480w ,https://jnnn.gs/media/posts/9/responsive/Samosa-Chaat-md.png 768w ,https://jnnn.gs/media/posts/9/responsive/Samosa-Chaat-lg.png 1024w ,https://jnnn.gs/media/posts/9/responsive/Samosa-Chaat-xl.png 1360w ,https://jnnn.gs/media/posts/9/responsive/Samosa-Chaat-2xl.png 1600w"  alt="" width="1029" height="540"></figure></h3>
-<h3>Sauce (Chaat)</h3>
-<ol>
-<li>Open and start drinking 1 India beer</li>
-<li>Peel and finely chop 1 red onion</li>
-<li>Open and drain one can of chickpeas</li>
-<li>Heat 2 1/2 tbs of oil in a cooking pot</li>
-<li>Add the red onion and cook until golden</li>
-<li>Add 1 tbs of garlic ginger paste</li>
-<li>Add 1 tin of chopped tomato's</li>
-<li>Add spices
-<ol>
-<li>1 tsp salt</li>
-<li>1/2 tsp turmeric</li>
-<li>1 tps chilli power</li>
-<li>1/2 tps garam masala</li>
-<li>2-3 thin green chillies (optional) </li>
-</ol>
-</li>
-<li>Cook for a few minutes</li>
-<li>Add 1/2 cup of water</li>
-<li>Add 1 tin of chickpeas</li>
-<li>Add 1 cup of water</li>
-<li>Cover and cook on medium-low heat ~10 mins</li>
-<li>Generally crush the chickpeas</li>
-<li>Add fresh coriander to finish sauce</li>
-</ol>
-<h3>Samosas</h3>
-<ol>
-<li>Made sure samosas are defrosted</li>
-<li>Cook in a pan of oil until golden brown colour ~10 mins</li>
-<li>Let them cool a little</li>
-<li>Break samosas up into bite size pieces</li>
-</ol>
-<h3>Dish out</h3>
-<ol>
-<li>Add sauce to a lovely serving dish and flatten out</li>
-<li>Add bite size samosas pieces, evenly distributed</li>
-<li>Lightly spread over sweet yoghurt</li>
-<li>Repeat with mint raitha</li>
-<li>Repeat with tamarind chutney </li>
-<li>Sprinkle uncooked red onions over the dish (1/2 medium onion)</li>
-<li>Add 1-2 chopped tomato's</li>
-<li>Add fresh coriander</li>
-<li>Add some bhujia (optional)</li>
-</ol>
-<p>Enjoy!</p>
             ]]>
         </content>
     </entry>
