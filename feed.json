@@ -10,6 +10,22 @@
     },
     "items": [
         {
+            "id": "https://jnnn.gs/architecture-for-aws-vpc-internet-facing-public-subnet-with-private-subnet-backend.html",
+            "url": "https://jnnn.gs/architecture-for-aws-vpc-internet-facing-public-subnet-with-private-subnet-backend.html",
+            "title": "Architecture for AWS VPC: Internet-facing Public subnet with Private subnet backend",
+            "summary": " ",
+            "content_html": "<div class=\"gallery-wrapper\"><div class=\"gallery\"  data-is-empty=\"false\" data-columns=\"1\">\n<figure class=\"gallery__item\"><a href=\"https://jnnn.gs/media/posts/21/gallery/AWS_Public_Private_Subnet_with_Security.png\" data-size=\"1091x790\"><img loading=\"lazy\" src=\"https://jnnn.gs/media/posts/21/gallery/AWS_Public_Private_Subnet_with_Security-thumbnail.png\" alt=\"AWS_Public_Private_Subnet_with_Security\" width=\"720\" height=\"521\"></a></figure>\n</div></div>",
+            "author": {
+                "name": "Jnnngs"
+            },
+            "tags": [
+                   "DevOps",
+                   "AWS"
+            ],
+            "date_published": "2021-12-21T12:08:14+00:00",
+            "date_modified": "2021-12-21T12:08:14+00:00"
+        },
+        {
             "id": "https://jnnn.gs/add-additional-teleport-nodes.html",
             "url": "https://jnnn.gs/add-additional-teleport-nodes.html",
             "title": "Add additional Teleport nodes",
@@ -143,21 +159,6 @@
             ],
             "date_published": "2021-05-27T11:25:38+01:00",
             "date_modified": "2021-05-27T11:26:00+01:00"
-        },
-        {
-            "id": "https://jnnn.gs/bombay-aloo.html",
-            "url": "https://jnnn.gs/bombay-aloo.html",
-            "title": "Bombay Aloo",
-            "summary": " Bombay Aloo Open and start drinking 1 India beer Boil the baby potato's for 15 minutes (soft but not fully cooked) While they are boiling, make the sauce... Heat the oil (medium heat) in a cooking pot and add the punch phoron (or cumin&hellip;",
-            "content_html": "<figure class=\"post__image post__image--center\"><img loading=\"lazy\"  src=\"https://jnnn.gs/media/posts/10//Bombay-Aloo.png\" sizes=\"(max-width: 48em) 100vw, 768px\" srcset=\"https://jnnn.gs/media/posts/10//responsive/Bombay-Aloo-xs.png 300w ,https://jnnn.gs/media/posts/10//responsive/Bombay-Aloo-sm.png 480w ,https://jnnn.gs/media/posts/10//responsive/Bombay-Aloo-md.png 768w ,https://jnnn.gs/media/posts/10//responsive/Bombay-Aloo-lg.png 1024w ,https://jnnn.gs/media/posts/10//responsive/Bombay-Aloo-xl.png 1360w ,https://jnnn.gs/media/posts/10//responsive/Bombay-Aloo-2xl.png 1600w\"  alt=\"Bombay Aloo\" width=\"1241\" height=\"467\"></figure>\n<h2>Bombay Aloo</h2>\n<ol>\n<li>Open and start drinking 1 India beer</li>\n<li>Boil the baby potato's for 15 minutes (soft but not fully cooked)</li>\n<li>While they are boiling, make the sauce...</li>\n<li>Heat the oil (medium heat) in a cooking pot and add the punch phoron (or cumin seeds) and bay leaves</li>\n<li>Add onions, green peppers and green chilli's</li>\n<li>Add salt and cook until onions are soft and golden ~10 mins</li>\n<li>Add ginger and garlic, then increase heat to medium-high</li>\n<li>Cook for 2-3 mins</li>\n<li>Add all the spices and tomato's</li>\n<li>Keep mixing and cook for 10 mins on medium heat</li>\n<li>Check on the potato's, turn off if done but keep in hot water</li>\n<li>Drain and add potato's</li>\n<li>Cook for further 5-10 mins until sauce is the right thickness </li>\n<li>Add coriander and enjoy!</li>\n</ol>\n<h3>Ingredients List</h3>\n<ol>\n<li>500 grams baby potato</li>\n<li>4 tbsp vegetable oil or vegetable ghee</li>\n<li>1 tsp punch phoron or cumin seeds</li>\n<li>1 &amp; 1/2 ginger paste</li>\n<li>1 &amp; 1/2 garlic paste</li>\n<li>1 &amp; 1/2 medium diced onion</li>\n<li>1/2 diced green capsicum</li>\n<li>3 sliced or chopped green chilli</li>\n<li>2 medium diced tomato or 1 tin of chopped tomato's</li>\n<li>1 tsp salt (salt to taste)</li>\n<li>1 heaped tsp coriander powder</li>\n<li>1 heaped tsp madras curry powder (east end brand recommended)</li>\n<li>1/2 tsp turmeric powder</li>\n<li>1/2 tsp cumin powder</li>\n<li>1/2 tsp chilli powder</li>\n<li>1 heaped tsp English butter (optional)</li>\n<li>1 tbsp fresh coriander for garnish</li>\n</ol>",
-            "author": {
-                "name": "Jnnngs"
-            },
-            "tags": [
-                   "Indian food"
-            ],
-            "date_published": "2021-05-20T16:23:02+01:00",
-            "date_modified": "2021-07-19T09:46:56+01:00"
         }
     ]
 }

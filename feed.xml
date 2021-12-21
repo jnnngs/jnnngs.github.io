@@ -3,12 +3,36 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-12-10T14:11:02+00:00</updated>
+    <updated>2021-12-21T12:08:14+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
     <id>https://jnnn.gs</id>
 
+    <entry>
+        <title>Architecture for AWS VPC: Internet-facing Public subnet with Private subnet backend</title>
+        <author>
+            <name>Jnnngs</name>
+        </author>
+        <link href="https://jnnn.gs/architecture-for-aws-vpc-internet-facing-public-subnet-with-private-subnet-backend.html"/>
+        <id>https://jnnn.gs/architecture-for-aws-vpc-internet-facing-public-subnet-with-private-subnet-backend.html</id>
+            <category term="DevOps"/>
+            <category term="AWS"/>
+
+        <updated>2021-12-21T12:08:14+00:00</updated>
+            <summary>
+                <![CDATA[
+                     
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <div class="gallery-wrapper"><div class="gallery"  data-is-empty="false" data-columns="1">
+<figure class="gallery__item"><a href="https://jnnn.gs/media/posts/21/gallery/AWS_Public_Private_Subnet_with_Security.png" data-size="1091x790"><img loading="lazy" src="https://jnnn.gs/media/posts/21/gallery/AWS_Public_Private_Subnet_with_Security-thumbnail.png" alt="AWS_Public_Private_Subnet_with_Security" width="720" height="521"></a></figure>
+</div></div>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Add additional Teleport nodes</title>
         <author>
@@ -485,64 +509,6 @@ Vacuuming done, freed 104.0M of archived journals from /var/log/journal/1b9ab93<
 <li>2 tsp coriander powder</li>
 </ol>
 </li>
-</ol>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>Bombay Aloo</title>
-        <author>
-            <name>Jnnngs</name>
-        </author>
-        <link href="https://jnnn.gs/bombay-aloo.html"/>
-        <id>https://jnnn.gs/bombay-aloo.html</id>
-            <category term="Indian food"/>
-
-        <updated>2021-07-19T09:46:56+01:00</updated>
-            <summary>
-                <![CDATA[
-                     Bombay Aloo Open and start drinking 1 India beer Boil the baby potato's for 15 minutes (soft but not fully cooked) While they are boiling, make the sauce... Heat the oil (medium heat) in a cooking pot and add the punch phoron (or cumin&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <figure class="post__image post__image--center"><img loading="lazy"  src="https://jnnn.gs/media/posts/10//Bombay-Aloo.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/10//responsive/Bombay-Aloo-xs.png 300w ,https://jnnn.gs/media/posts/10//responsive/Bombay-Aloo-sm.png 480w ,https://jnnn.gs/media/posts/10//responsive/Bombay-Aloo-md.png 768w ,https://jnnn.gs/media/posts/10//responsive/Bombay-Aloo-lg.png 1024w ,https://jnnn.gs/media/posts/10//responsive/Bombay-Aloo-xl.png 1360w ,https://jnnn.gs/media/posts/10//responsive/Bombay-Aloo-2xl.png 1600w"  alt="Bombay Aloo" width="1241" height="467"></figure>
-<h2>Bombay Aloo</h2>
-<ol>
-<li>Open and start drinking 1 India beer</li>
-<li>Boil the baby potato's for 15 minutes (soft but not fully cooked)</li>
-<li>While they are boiling, make the sauce...</li>
-<li>Heat the oil (medium heat) in a cooking pot and add the punch phoron (or cumin seeds) and bay leaves</li>
-<li>Add onions, green peppers and green chilli's</li>
-<li>Add salt and cook until onions are soft and golden ~10 mins</li>
-<li>Add ginger and garlic, then increase heat to medium-high</li>
-<li>Cook for 2-3 mins</li>
-<li>Add all the spices and tomato's</li>
-<li>Keep mixing and cook for 10 mins on medium heat</li>
-<li>Check on the potato's, turn off if done but keep in hot water</li>
-<li>Drain and add potato's</li>
-<li>Cook for further 5-10 mins until sauce is the right thickness </li>
-<li>Add coriander and enjoy!</li>
-</ol>
-<h3>Ingredients List</h3>
-<ol>
-<li>500 grams baby potato</li>
-<li>4 tbsp vegetable oil or vegetable ghee</li>
-<li>1 tsp punch phoron or cumin seeds</li>
-<li>1 &amp; 1/2 ginger paste</li>
-<li>1 &amp; 1/2 garlic paste</li>
-<li>1 &amp; 1/2 medium diced onion</li>
-<li>1/2 diced green capsicum</li>
-<li>3 sliced or chopped green chilli</li>
-<li>2 medium diced tomato or 1 tin of chopped tomato's</li>
-<li>1 tsp salt (salt to taste)</li>
-<li>1 heaped tsp coriander powder</li>
-<li>1 heaped tsp madras curry powder (east end brand recommended)</li>
-<li>1/2 tsp turmeric powder</li>
-<li>1/2 tsp cumin powder</li>
-<li>1/2 tsp chilli powder</li>
-<li>1 heaped tsp English butter (optional)</li>
-<li>1 tbsp fresh coriander for garnish</li>
 </ol>
             ]]>
         </content>
