@@ -3,7 +3,7 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-12-22T11:01:56+00:00</updated>
+    <updated>2021-12-22T11:05:57+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
@@ -19,33 +19,35 @@
             <category term="DevOps"/>
             <category term="AWS"/>
 
-        <updated>2021-12-22T11:01:56+00:00</updated>
+        <updated>2021-12-22T11:05:57+00:00</updated>
             <summary>
                 <![CDATA[
-                     What is it? An Amazon Virtual Private Cloud (Amazon VPC) is one of the fundamental architectures and part of many "typical" AWS designs. Its implementation covers a lot of best practices and provides a highly secure environment for solutions that require public-facing access with&hellip;
+                    Background This blog post was created with a primary reason to support my AWS Architecture Certification (I passed!) and as a secondary purpose as a future reference. This post will cover the basic design concepts with basic implementation notes so that the VPC environment can&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                <figure class="post__image post__image--center"><img loading="lazy"  src="https://jnnn.gs/media/posts/21/AWS_Public_Private_Subnet_with_Security_picture_only.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://jnnn.gs/media/posts/21/responsive/AWS_Public_Private_Subnet_with_Security_picture_only-xs.png 300w ,https://jnnn.gs/media/posts/21/responsive/AWS_Public_Private_Subnet_with_Security_picture_only-sm.png 480w ,https://jnnn.gs/media/posts/21/responsive/AWS_Public_Private_Subnet_with_Security_picture_only-md.png 768w ,https://jnnn.gs/media/posts/21/responsive/AWS_Public_Private_Subnet_with_Security_picture_only-lg.png 1024w ,https://jnnn.gs/media/posts/21/responsive/AWS_Public_Private_Subnet_with_Security_picture_only-xl.png 1360w ,https://jnnn.gs/media/posts/21/responsive/AWS_Public_Private_Subnet_with_Security_picture_only-2xl.png 1600w"  alt="AWS VPC - Typical Design" width="752" height="504"></figure>
-<h2>What is it?</h2>
-<p>An Amazon Virtual Private Cloud (Amazon VPC) is one of the fundamental architectures and part of many "typical" AWS designs. Its implementation covers a lot of best practices and provides a highly secure environment for solutions that require public-facing access with securely protected backends. </p>
-<h2>Blog post</h2>
+                <h2>Background</h2>
 <p>This blog post was created with a primary reason to support my AWS Architecture Certification (I passed!) and as a secondary purpose as a future reference. This post will cover the basic design concepts with basic implementation notes so that the VPC environment can be recreated.</p>
 <p>The main system architecture picture at the top of this post has reference numbers against the core components of the VPC, which are used to provide meaningful information of their purpose. At the bottom of this post, I have provided a rich diagram, which includes all the information needed to be used as a cheat-sheet reference diagram.</p>
-<h2>System Architecture References</h2>
+<h2>What is an Amazon Virtual Private Cloud?</h2>
+<p>An Amazon Virtual Private Cloud (Amazon VPC) is one of the fundamental architectures and part of many "typical" AWS designs. Its implementation covers a lot of best practices and provides a highly secure environment for solutions that require public-facing access with securely protected backends. </p>
+<h2>System Architecture Reference</h2>
+<div class="gallery-wrapper"><div class="gallery"  data-is-empty="false" data-columns="1">
+<figure class="gallery__item"><a href="https://jnnn.gs/media/posts/21/gallery/AWS_Public_Private_Subnet_with_Security_picture_only-2.png" data-size="752x504"><img loading="lazy" src="https://jnnn.gs/media/posts/21/gallery/AWS_Public_Private_Subnet_with_Security_picture_only-2-thumbnail.png" alt="" width="720" height="483"></a></figure>
+</div></div>
 <ol>
-<li><strong>VPC</strong>: Virtual Private Cloud provides a secure network for your cloud components. Creating a VPC also makes a Route Table, Network ACL, and Network Security Group. The following components are automatically created as part of the VPC creation.
+<li><strong>[1] VPC</strong>: Virtual Private Cloud provides a secure network for your cloud components. Creating a VPC also makes a Route Table, Network ACL, and Network Security Group. The following components are automatically created as part of the VPC creation.
 <ol style="list-style-type: lower-alpha;">
-<li>[1a] <strong>Router</strong>: The Router is a logical component to which Route Tables belong to. The Router can not be accessed within the AWS console or command</li>
-<li>[1b] <strong>Route Table</strong>: Each subnet must be associated with a routeing table, which specifies the allowed routes for outbound traffic leaving the subnet</li>
-<li>[1c] <strong>Network ACL: </strong>Virtual firewall for the subnet. By default, everything is allowed for the default ACL, whilst custom ACLs are blocked by default. Network ACLs are stateless meaning explicit inbound and outbound rules are needed</li>
-<li>[1d] <strong>Network Security Group:</strong> Virtual firewall for the EC2 instance. By default, everything is blocked and NSGs are stateful</li>
+<li><strong>[1a]</strong> <strong>Router</strong>: The Router is a logical component to which Route Tables belong to. The Router can not be accessed within the AWS console or command</li>
+<li><strong>[1b]</strong> <strong>Route Table</strong>: Each subnet must be associated with a routeing table, which specifies the allowed routes for outbound traffic leaving the subnet</li>
+<li><strong>[1c] Network ACL: </strong>Virtual firewall for the subnet. By default, everything is allowed for the default ACL, whilst custom ACLs are blocked by default. Network ACLs are stateless meaning explicit inbound and outbound rules are needed</li>
+<li><strong>[1d]</strong> <strong>Network Security Group:</strong> Virtual firewall for the EC2 instance. By default, everything is blocked and NSGs are stateful</li>
 </ol>
 </li>
-<li><strong>Subnet</strong>: A subnet is a range of IP addresses in part of your VPC. The provided IPv4 CIDR block specifies how many IPs are available. Depending on the configuration, the subnet can be Public, Private or VPN-only. NB: One subnet in one AZ i.e. can not span multi-AZ</li>
-<li><strong>Internet Gateway</strong>: An internet gateway connects a VPC to the internet. There can only be one internet gateway per VPC </li>
-<li><strong>NAT Gateway</strong>: You can use a NAT gateway so that instances in a private subnet can connect to services outside your VPC, but external services cannot initiate a connection with those instances. NB: NAT Gateways are placed within the public subnet with a VPC Route Table entry to direct 0.0.0.0/0 traffic to the NAT Gateway</li>
+<li><strong>[2] Subnet</strong>: A subnet is a range of IP addresses in part of your VPC. The provided IPv4 CIDR block specifies how many IPs are available. Depending on the configuration, the subnet can be Public, Private or VPN-only. NB: One subnet in one AZ i.e. can not span multi-AZ</li>
+<li><strong>[3] Internet Gateway</strong>: An internet gateway connects a VPC to the internet. There can only be one internet gateway per VPC </li>
+<li><strong>[4] NAT Gateway</strong>: You can use a NAT gateway so that instances in a private subnet can connect to services outside your VPC, but external services cannot initiate a connection with those instances. NB: NAT Gateways are placed within the public subnet with a VPC Route Table entry to direct 0.0.0.0/0 traffic to the NAT Gateway</li>
 </ol>
 <h2>Implementation Notes</h2>
 <ol>
