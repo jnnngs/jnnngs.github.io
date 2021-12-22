@@ -3,7 +3,7 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2021-12-22T11:05:57+00:00</updated>
+    <updated>2021-12-22T12:05:54+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
@@ -19,7 +19,7 @@
             <category term="DevOps"/>
             <category term="AWS"/>
 
-        <updated>2021-12-22T11:05:57+00:00</updated>
+        <updated>2021-12-22T12:05:54+00:00</updated>
             <summary>
                 <![CDATA[
                     Background This blog post was created with a primary reason to support my AWS Architecture Certification (I passed!) and as a secondary purpose as a future reference. This post will cover the basic design concepts with basic implementation notes so that the VPC environment can&hellip;
@@ -57,12 +57,12 @@
 <li><strong style="color: var(--text-editor-body-color); font-family: var(--font-base); font-size: inherit;">Public EC2</strong><span style="color: var(--text-editor-body-color); font-family: var(--font-base); font-size: inherit; font-weight: var(--font-weight-normal);">: Create EC2 instance in custom VPC, Public subnet with tag name as "webServer". Create a new security group (WebDMZ). Add rule for HTTP 0.0.0.0/0</span></li>
 <li><strong style="color: var(--text-editor-body-color); font-family: var(--font-base); font-size: inherit;">Private EC2</strong><span style="color: var(--text-editor-body-color); font-family: var(--font-base); font-size: inherit; font-weight: var(--font-weight-normal);">: Create EC2 instance in custom VPC, Private subnet with tag name as "dbServer". Create a new security group (dbSG), an add an inbound rule for SSH source 10.0.1.0/24 (Public subnet CIDR), MYSQL/Aurora source 10.0.1.0/24 (Public subnet CIDR)</span></li>
 <li><strong style="color: var(--text-editor-body-color); font-family: var(--font-base); font-size: inherit;">NGINX</strong><span style="color: var(--text-editor-body-color); font-family: var(--font-base); font-size: inherit; font-weight: var(--font-weight-normal);">: SSH into the webserver, sudo su, yum update -y (this will confirm outbound internet access), yum install nginx -y</span></li>
-<li><strong style="color: var(--text-editor-body-color); font-family: var(--font-base); font-size: inherit;">KeyPair for SSH</strong><span style="color: var(--text-editor-body-color); font-family: var(--font-base); font-size: inherit; font-weight: var(--font-weight-normal);">: vi myKP.pem, paste KP, save, chmod 400 myKP.pem, ssh ec2-user@IPADDRESS_dbServer. At this point, dbServer has no internet access so we need to implement a NAT Gateway for all internet outbound traffic</span></li>
+<li><strong style="color: var(--text-editor-body-color); font-family: var(--font-base); font-size: inherit;">KeyPair for SSH</strong><span style="color: var(--text-editor-body-color); font-family: var(--font-base); font-size: inherit; font-weight: var(--font-weight-normal);">: vi myKP.pem, paste KP, save, chmod 400 myKP.pem, ssh <a href="mailto:ec2-user@IPADDRESS_dbServer">ec2-user@IPADDRESS_dbServer</a> -i myKP.pem. At this point, dbServer has no internet access so we need to implement a NAT Gateway for all internet outbound traffic</span></li>
 <li><strong style="color: var(--text-editor-body-color); font-family: var(--font-base); font-size: inherit;">NAT Gateway</strong><span style="color: var(--text-editor-body-color); font-family: var(--font-base); font-size: inherit; font-weight: var(--font-weight-normal);">: Create a NAT Gateway within your VPC, assign it to the public subnet and add Elastic IP. Edit the MAIN Route Table, add a route for 0.0.0.0/0 to a target of the NAT Gateway. This will now direct outbound internet traffic from the private subnet to the NAT Gateway. Inbound internet traffic will remain blocked</span></li>
 </ol>
 <h2>Cheat-sheet reference diagram</h2>
 <div class="gallery-wrapper"><div class="gallery"  data-is-empty="false" data-columns="1">
-<figure class="gallery__item"><a href="https://jnnn.gs/media/posts/21/gallery/AWS_Public_Private_Subnet_with_Security.png" data-size="1210x886"><img loading="lazy" src="https://jnnn.gs/media/posts/21/gallery/AWS_Public_Private_Subnet_with_Security-thumbnail.png" alt="" width="720" height="527"></a></figure>
+<figure class="gallery__item"><a href="https://jnnn.gs/media/posts/21/gallery/AWS_Public_Private_Subnet_with_Security-2.png" data-size="1212x890"><img loading="lazy" src="https://jnnn.gs/media/posts/21/gallery/AWS_Public_Private_Subnet_with_Security-2-thumbnail.png" alt="" width="720" height="529"></a></figure>
 </div></div>
             ]]>
         </content>
