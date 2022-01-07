@@ -3,7 +3,7 @@
     <title>jnnngs</title>
     <link href="https://jnnn.gs/feed.xml" rel="self" />
     <link href="https://jnnn.gs" />
-    <updated>2022-01-06T12:36:43+00:00</updated>
+    <updated>2022-01-07T10:42:41+00:00</updated>
     <author>
         <name>Jnnngs</name>
     </author>
@@ -99,7 +99,7 @@
             <category term="DevOps"/>
             <category term="AWS"/>
 
-        <updated>2021-12-22T12:05:54+00:00</updated>
+        <updated>2022-01-07T10:42:41+00:00</updated>
             <summary>
                 <![CDATA[
                     Background This blog post was created with a primary reason to support my AWS Architecture Certification (I passed!) and as a secondary purpose as a future reference. This post will cover the basic design concepts with basic implementation notes so that the VPC environment can&hellip;
@@ -144,6 +144,9 @@
 <div class="gallery-wrapper"><div class="gallery"  data-is-empty="false" data-columns="1">
 <figure class="gallery__item"><a href="https://jnnn.gs/media/posts/21/gallery/AWS_Public_Private_Subnet_with_Security-2.png" data-size="1212x890"><img loading="lazy" src="https://jnnn.gs/media/posts/21/gallery/AWS_Public_Private_Subnet_with_Security-2-thumbnail.png" alt="" width="720" height="529"></a></figure>
 </div></div>
+<h2>Cloudformation Template</h2>
+<p><a href="https://jnnn.gs/CloudFormation_VPC_Public_Private_Subnets.yml" target="_blank" rel="noopener noreferrer">CloudFormation_VPC_Public_Private_Subnets.yml</a></p>
+<p> </p>
             ]]>
         </content>
     </entry>

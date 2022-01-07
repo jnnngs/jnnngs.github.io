@@ -1,0 +1,188 @@
+# Usage:
+#   aws cloudformation --region <region> create-stack --stack-name <stack name> --template-body file://CloudFormation_VPC_Public_Private_Subnets.yaml
+
+# This template will:
+#   Create a VPC with:
+#       1 Public Subnets
+#       1 Private Subnets
+#   An Internet Gateway (with routes to it for Public Subnets)
+#   A NAT Gateway for outbound access (with routes from Private Subnets set to use it)
+#   i.e. https://jnnn.gs/architecture-for-aws-vpc-internet-facing-public-subnet-with-private-subnet-backend.html
+#     
+Mappings:
+  RegionMap:
+    us-east-1:
+     "AMI": "ami-0742b4e673072066f"
+    us-west-2:
+     "AMI": "ami-0518bb0e75d3619ca"
+
+Resources:
+  PubPrivateVPC:
+    Type: 'AWS::EC2::VPC'
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      Tags:
+        - Key: Name
+          Value: !Join [_, [!Ref 'AWS::StackName']]
+ 
+  PublicSubnet1:
+    Type: 'AWS::EC2::Subnet'
+    Properties:
+      VpcId: !Ref PubPrivateVPC
+      AvailabilityZone: us-east-1a
+      CidrBlock: 10.0.1.0/24
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: !Join [_, [!Ref 'AWS::StackName']]
+     
+  PrivateSubnet1:
+    Type: 'AWS::EC2::Subnet'
+    Properties:
+      VpcId: !Ref PubPrivateVPC
+      AvailabilityZone: us-east-1a
+      CidrBlock: 10.0.2.0/24
+      MapPublicIpOnLaunch: false
+      Tags:
+        - Key: Name
+          Value: !Join [_, [!Ref 'AWS::StackName']]
+ 
+  InternetGateway:
+    Type: 'AWS::EC2::InternetGateway'
+    Properties:
+      Tags:
+        - Key: Name
+          Value: !Join [_, [!Ref 'AWS::StackName']]
+        - Key: Network
+          Value: Public
+          
+  
+  GatewayToInternet:
+    Type: 'AWS::EC2::VPCGatewayAttachment'
+    Properties:
+      VpcId: !Ref PubPrivateVPC
+      InternetGatewayId: !Ref InternetGateway
+      #Tags not allowed!
+      #Tags:
+      #  - Key: Name
+      #    Value: !Join [_, [!Ref 'AWS::StackName']]
+  
+  PublicRouteTable:
+    Type: 'AWS::EC2::RouteTable'
+    Properties:
+      VpcId: !Ref PubPrivateVPC
+      Tags:
+        - Key: Name
+          Value: !Join [_, [!Ref 'AWS::StackName']]
+        - Key: Network
+          Value: Public
+  
+  PublicRoute:
+    Type: 'AWS::EC2::Route'
+    DependsOn: GatewayToInternet
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+      #Tags not allowed!
+      #Tags:
+      #  - Key: Name
+      #    Value: !Join [_, [!Ref 'AWS::StackName']]
+ 
+  PublicSubnet1RouteTableAssociation:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties:
+      SubnetId: !Ref PublicSubnet1
+      RouteTableId: !Ref PublicRouteTable
+      #Tags not allowed!
+      #Tags:
+      #  - Key: Name
+      #    Value: !Join [_, [!Ref 'AWS::StackName']]
+      
+  NatGateway:
+    Type: "AWS::EC2::NatGateway"
+    DependsOn: NatPublicIP
+    Properties: 
+      AllocationId: !GetAtt NatPublicIP.AllocationId
+      SubnetId: !Ref PublicSubnet1
+      Tags:
+        - Key: Name
+          Value: !Join [_, [!Ref 'AWS::StackName']]
+ 
+  NatPublicIP:
+    Type: "AWS::EC2::EIP"
+    DependsOn: PubPrivateVPC
+    Properties:
+      Domain: vpc
+      Tags:
+        - Key: Name
+          Value: !Join [_, [!Ref 'AWS::StackName']]
+ 
+  PrivateRouteTable:
+    Type: 'AWS::EC2::RouteTable'
+    Properties:
+      VpcId: !Ref PubPrivateVPC
+      Tags:
+        - Key: Network
+          Value: Private
+        - Key: Name
+          Value: !Join [_, [!Ref 'AWS::StackName']]
+  
+  PrivateRoute:
+    Type: 'AWS::EC2::Route'
+    Properties:
+      RouteTableId: !Ref PrivateRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      NatGatewayId: !Ref NatGateway
+      #Tags not allowed!
+      #Tags:
+      #  - Key: Name
+      #    Value: !Join [_, [!Ref 'AWS::StackName']]
+ 
+  PrivateSubnet1RouteTableAssociation:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties:
+      SubnetId: !Ref PrivateSubnet1
+      RouteTableId: !Ref PrivateRouteTable
+      #Tags not allowed!
+      #Tags:
+      #  - Key: Name
+      #    Value: !Join [_, [!Ref 'AWS::StackName']]
+          
+  WebServerSecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Enable HTTP from 0.0.0.0/0
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '80'
+          ToPort: '80'
+          CidrIp: 0.0.0.0/0
+      VpcId: !Ref PubPrivateVPC 
+  
+  MyPublicEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
+      InstanceType: t2.micro
+      SubnetId: !Ref PublicSubnet1
+      SecurityGroupIds: 
+        - !Ref WebServerSecurityGroup
+      Tags:
+        - Key: Name
+          Value: !Join [_, [!Ref 'AWS::StackName']]     
+      UserData:
+        Fn::Base64: !Sub |
+            #!/bin/bash
+            yum install httpd -y
+            service httpd start  
+            echo "<html><body><h1>Hello from Region ${AWS::Region}<h1></body></html>" > /var/www/html/index.html
+
+Outputs: 
+  InstanceID:
+    Description: MyPublicEC2Instance Instance ID
+    Value: !Ref MyPublicEC2Instance
+  URL:
+    Description: MyPublicEC2Instance URL
+    Value: { "Fn::Join" : [ "", ["http://", { "Fn::GetAtt" : ["MyPublicEC2Instance", "PublicIp"] }]]}
+ 
