@@ -14,6 +14,9 @@
 <loc>https://jnnn.gs/page/4/</loc>
 </url>
 <url>
+<loc>https://jnnn.gs/page/5/</loc>
+</url>
+<url>
 <loc>https://jnnn.gs/hello-world.html</loc>
 <lastmod>2021-01-14T09:10:29+00:00</lastmod>
 </url>
@@ -144,6 +147,10 @@
 <image:loc>https://jnnn.gs/media\posts\19/2021-12-10_13-38-01.png</image:loc>
 <image:title><![CDATA[]]></image:title>
 </image:image>
+</url>
+<url>
+<loc>https://jnnn.gs/web3-developers-get-dollar155k-average-salary.html</loc>
+<lastmod>2022-01-08T10:38:53+00:00</lastmod>
 </url>
 <url>
 <loc>https://jnnn.gs/architecture-for-aws-vpc-internet-facing-public-subnet-with-private-subnet-backend.html</loc>
